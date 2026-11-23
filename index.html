@@ -6,7 +6,6 @@
 <title>FiXiK CLXN — Majestic RP</title>
 <meta name="description" content="FiXiK CLXN — семья на Majestic RP (сервер Memphis). Команда, характер и общая история.">
 <meta name="theme-color" content="#08090d">
-<link rel="icon" href="/favicon.svg" type="image/svg+xml">
 
 <link rel="preconnect" href="https://googleapis.com">
 <link rel="preconnect" href="https://gstatic.com" crossorigin>
@@ -82,14 +81,14 @@ button {
     display: flex;
     align-items: center;
     justify-content: center;
-    font-family: Orbitron;
+    font-family: 'Orbitron', sans-serif;
     font-weight: 800;
     font-size: 16px;
     box-shadow: 0 0 25px rgba(139,92,246,.25);
 }
 
 .logo-text {
-    font-family: Orbitron;
+    font-family: 'Orbitron', sans-serif;
     font-weight: 700;
     letter-spacing: 2px;
 }
@@ -143,7 +142,6 @@ button {
     display: flex;
     align-items: center;
     padding: 120px 10% 90px;
-    /* Замени URL ниже на путь к твоему локальному фото (например, url('bg.png')) */
     background:
       linear-gradient(90deg, rgba(8,9,13,.98) 0%, rgba(8,9,13,.75) 50%, rgba(8,9,13,.35) 100%),
       linear-gradient(0deg, #08090d 0%, transparent 35%),
@@ -189,7 +187,7 @@ button {
 }
 
 .hero h1 {
-    font-family: Orbitron;
+    font-family: 'Orbitron', sans-serif;
     font-size: clamp(48px, 8vw, 100px);
     line-height: 1.08;
     font-weight: 800;
@@ -261,7 +259,7 @@ button {
 }
 
 .stat h2 {
-    font-family: Orbitron;
+    font-family: 'Orbitron', sans-serif;
     font-size: 28px;
 }
 
@@ -290,7 +288,7 @@ section.content-section {
 }
 
 .section-heading h2 {
-    font-family: Orbitron;
+    font-family: 'Orbitron', sans-serif;
     font-size: clamp(30px, 4vw, 48px);
 }
 
@@ -327,7 +325,7 @@ section.content-section {
 }
 
 .about-card h3 {
-    font-family: Orbitron;
+    font-family: 'Orbitron', sans-serif;
     font-size: 17px;
     margin-bottom: 13px;
 }
@@ -364,13 +362,13 @@ section.content-section {
 
 .rank-number {
     color: var(--purple-light);
-    font-family: Orbitron;
+    font-family: 'Orbitron', sans-serif;
     font-size: 11px;
     margin-bottom: 20px;
 }
 
 .rank h3 {
-    font-family: Orbitron;
+    font-family: 'Orbitron', sans-serif;
     font-size: 15px;
     margin-bottom: 10px;
 }
@@ -391,7 +389,7 @@ section.content-section {
 }
 
 .join h2 {
-    font-family: Orbitron;
+    font-family: 'Orbitron', sans-serif;
     font-size: clamp(32px, 5vw, 55px);
 }
 
@@ -440,7 +438,7 @@ section.content-section {
 }
 
 .modal-box h3 {
-    font-family: Orbitron;
+    font-family: 'Orbitron', sans-serif;
     font-size: 20px;
     margin-bottom: 8px;
 }
@@ -488,53 +486,34 @@ footer p {
 }
 
 .footer-logo {
-    font-family: Orbitron;
+    font-family: 'Orbitron', sans-serif;
     font-size: 13px;
     letter-spacing: 2px;
 }
 
-/* ANIMATION */
-.reveal {
-    opacity: 0;
-    transform: translateY(25px);
-    transition: .7s ease;
-}
-
-.reveal.visible {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-@media (prefers-reduced-motion: reduce) {
-    html { scroll-behavior: auto; }
-    .reveal { opacity: 1; transform: none; transition: none; }
-}
-
 /* MOBILE */
 @media (max-width: 900px) {
-    .navbar {
-        padding: 0 5%;
-    }
+    .navbar { padding: 0 5%; }
+    .nav-links { gap: 15px; }
+    .nav-links a:not(.nav-button) { display: none; }
+    .hero { padding-left: 7%; padding-right: 7%; }
+    section.content-section { padding: 80px 7%; }
+    .about-grid { grid-template-columns: 1fr; }
+    .ranks { grid-template-columns: 1fr 1fr; }
+    .stats { column-gap: 30px; }
+}
 
-    .nav-links {
-        gap: 15px;
-    }
+@media (max-width: 550px) {
+    .ranks { grid-template-columns: 1fr; }
+    footer { flex-direction: column; text-align: center; }
+}
+</style>
+</head>
+<body>
 
-    .nav-links a:not(.nav-button) {
-        display: none;
-    }
-
-    .hero {
-        padding-left: 7%;
-        padding-right: 7%;
-    }
-
-    section.content-section {
-        padding: 80px 7%;
-    }
-
-    .about-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .ranks {
+<nav class="navbar">
+    <a href="#" class="logo">
+        <div class="logo-icon">FX</div>
+        <div class="logo-text">
+            FiXiK CLXN
+            <span>MEMPHIS SERVER</span>
