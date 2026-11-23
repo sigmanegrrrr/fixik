@@ -1,2156 +1,1315 @@
+
 <!DOCTYPE html>
 <html lang="ru">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <title>FiXiK CLXN — Majestic RP</title>
-
 <meta name="description" content="FiXiK CLXN — клан на Majestic RP, сервер Memphis.">
 <meta name="theme-color" content="#08090d">
 
 <link rel="icon" href="logo.png" type="image/png">
-
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
 <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;500;600;700&family=DM+Sans:wght@400;500;600;700&family=Orbitron:wght@500;600;700;800&display=swap" rel="stylesheet">
 
 <style>
-
-:root{
-    --bg:#08090d;
-    --panel:#11131b;
-    --purple:#8b5cf6;
-    --purple-light:#b49aff;
-    --white:#f5f5f7;
-    --gray:#9293a0;
-    --border:rgba(255,255,255,.08);
+:root {
+    --bg: #08090d;
+    --panel: #11131b;
+    --purple: #8b5cf6;
+    --purple-light: #b49aff;
+    --white: #f5f5f7;
+    --gray: #9293a0;
+    --border: rgba(255,255,255,.08);
 }
 
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-html{
-    scroll-behavior:smooth;
+html { scroll-behavior: smooth; }
+
+body {
+    background: var(--bg);
+    color: var(--white);
+    font-family: 'DM Sans', sans-serif;
+    overflow-x: hidden;
+    min-height: 100vh;
 }
 
-body{
-    background:var(--bg);
-    color:var(--white);
-    font-family:'DM Sans',sans-serif;
-    overflow-x:hidden;
-    min-height:100vh;
+a { text-decoration: none; color: inherit; }
+button { font-family: inherit; border: none; cursor: pointer; color: inherit; }
+
+/* NAVIGATION */
+
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    min-height: 78px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 8%;
+    z-index: 1000;
+    background: rgba(8,9,13,.82);
+    backdrop-filter: blur(20px);
+    border-bottom: 1px solid var(--border);
 }
 
-a{
-    text-decoration:none;
-    color:inherit;
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    cursor: pointer;
 }
 
-button{
-    font-family:inherit;
-    border:none;
-    cursor:pointer;
-    color:inherit;
+.logo-icon {
+    width: 43px;
+    height: 43px;
+    border-radius: 50%;
+    object-fit: contain;
+    background: #11131b;
+    box-shadow: 0 0 25px rgba(139,92,246,.25);
 }
 
-
-/* =========================
-   NAVBAR
-========================= */
-
-.navbar{
-    position:fixed;
-    top:0;
-    left:0;
-    width:100%;
-    min-height:78px;
-
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-
-    padding:0 8%;
-
-    z-index:1000;
-
-    background:rgba(8,9,13,.82);
-    backdrop-filter:blur(20px);
-
-    border-bottom:1px solid var(--border);
+.logo-text {
+    font-family: 'Orbitron', sans-serif;
+    font-weight: 700;
+    letter-spacing: 2px;
 }
 
-.logo{
-    display:flex;
-    align-items:center;
-    gap:12px;
-    cursor:pointer;
+.nav-links {
+    display: flex;
+    gap: 28px;
+    align-items: center;
 }
 
-.logo-icon{
-    width:43px;
-    height:43px;
-    border-radius:50%;
-    object-fit:contain;
-    background:#11131b;
-    box-shadow:0 0 25px rgba(139,92,246,.25);
-}
-
-.logo-text{
-    font-family:'Orbitron',sans-serif;
-    font-weight:700;
-    letter-spacing:2px;
-}
-
-.nav-links{
-    display:flex;
-    gap:28px;
-    align-items:center;
-}
-
-.tab-btn{
-    position:relative;
-    background:transparent;
-    color:#a7a7b3;
-    font-size:13px;
-    padding:8px 0;
-    transition:.3s;
+.tab-btn {
+    position: relative;
+    background: transparent;
+    color: #a7a7b3;
+    font-size: 13px;
+    padding: 8px 0;
+    transition: .3s;
 }
 
 .tab-btn:hover,
-.tab-btn.active{
-    color:#fff;
+.tab-btn.active { color: #fff; }
+
+.tab-btn.active::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: var(--purple);
 }
 
-.tab-btn.active::after{
-    content:"";
-    position:absolute;
-    bottom:0;
-    left:0;
-    width:100%;
-    height:2px;
-    background:var(--purple);
+.nav-button {
+    padding: 12px 20px;
+    background: var(--purple);
+    border-radius: 7px;
+    font-size: 12px;
+    font-weight: 700;
+    transition: .3s;
 }
 
-.nav-button{
-    padding:12px 20px;
-    background:var(--purple);
-    border-radius:7px;
-    font-size:12px;
-    font-weight:700;
-    transition:.3s;
+.nav-button:hover {
+    background: #a078ff;
+    box-shadow: 0 0 25px rgba(139,92,246,.3);
 }
 
-.nav-button:hover{
-    background:#a078ff;
-    box-shadow:0 0 25px rgba(139,92,246,.3);
-}
+/* PAGE SYSTEM */
 
+main { min-height: 100vh; }
+.tab-page { display: none; }
+.tab-page.active { display: block; }
 
-/* =========================
-   TABS
-========================= */
+/* HOME */
 
-main{
-    min-height:100vh;
-}
-
-.tab-page{
-    display:none;
-}
-
-.tab-page.active{
-    display:block;
-}
-
-
-/* =========================
-   HERO
-========================= */
-
-.hero{
-    min-height:100vh;
-    position:relative;
-
-    display:flex;
-    align-items:center;
-
-    padding:120px 10% 90px;
-
-    /*
-       ЛОГОТИП ТЕПЕРЬ ДАЛЬШЕ
-       background-size: contain / 75%
-    */
-
+.hero {
+    min-height: 100vh;
+    position: relative;
+    display: flex;
+    align-items: center;
+    padding: 120px 10% 90px;
     background:
-        linear-gradient(
-            90deg,
-            rgba(8,9,13,.98) 0%,
-            rgba(8,9,13,.82) 45%,
-            rgba(8,9,13,.55) 100%
-        ),
-        linear-gradient(
-            0deg,
-            #08090d 0%,
-            transparent 40%
-        ),
+        linear-gradient(90deg, rgba(8,9,13,.98) 0%, rgba(8,9,13,.82) 45%, rgba(8,9,13,.55) 100%),
+        linear-gradient(0deg, #08090d 0%, transparent 40%),
         url('logo.png');
-
-    background-size:
-        cover,
-        cover,
-        72%;
-
-    background-repeat:no-repeat;
-
-    background-position:
-        center,
-        center,
-        right center;
+    background-size: cover, cover, 72%;
+    background-repeat: no-repeat;
+    background-position: center, center, right center;
 }
 
-.hero::after{
-    content:"";
-    position:absolute;
-    inset:0;
-
-    background:
-        radial-gradient(
-            circle at 75% 50%,
-            rgba(124,58,237,.14),
-            transparent 38%
-        );
-
-    pointer-events:none;
+.hero::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at 75% 50%, rgba(124,58,237,.14), transparent 38%);
+    pointer-events: none;
 }
 
-.hero-content{
-    position:relative;
-    z-index:2;
-    max-width:750px;
+.hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 750px;
 }
 
-.label{
-    display:inline-flex;
-    align-items:center;
-    gap:10px;
-
-    border:1px solid rgba(167,139,250,.3);
-
-    padding:9px 14px;
-
-    color:var(--purple-light);
-
-    font-size:10px;
-    letter-spacing:3px;
-
-    border-radius:4px;
-
-    margin-bottom:25px;
+.label {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    border: 1px solid rgba(167,139,250,.3);
+    padding: 9px 14px;
+    color: var(--purple-light);
+    font-size: 10px;
+    letter-spacing: 3px;
+    border-radius: 4px;
+    margin-bottom: 25px;
 }
 
-.label-dot{
-    width:7px;
-    height:7px;
-
-    background:#a78bfa;
-
-    border-radius:50%;
-
-    box-shadow:0 0 10px #a78bfa;
+.label-dot {
+    width: 7px;
+    height: 7px;
+    background: #a78bfa;
+    border-radius: 50%;
+    box-shadow: 0 0 10px #a78bfa;
 }
 
-.hero h1{
-    font-family:'Orbitron',sans-serif;
-
-    font-size:clamp(48px,8vw,100px);
-
-    line-height:1.08;
-
-    font-weight:800;
-
-    letter-spacing:-3px;
+.hero h1 {
+    font-family: 'Orbitron', sans-serif;
+    font-size: clamp(48px, 8vw, 100px);
+    line-height: 1.08;
+    font-weight: 800;
+    letter-spacing: -3px;
 }
 
-.hero h1 span{
-    color:var(--purple-light);
-
-    text-shadow:
-        0 0 45px rgba(139,92,246,.3);
+.hero h1 span {
+    color: var(--purple-light);
+    text-shadow: 0 0 45px rgba(139,92,246,.3);
 }
 
-.hero-description{
-    color:#a7a7b3;
-
-    font-size:15px;
-
-    line-height:1.8;
-
-    max-width:510px;
-
-    margin-top:24px;
+.hero-description {
+    color: #a7a7b3;
+    font-size: 15px;
+    line-height: 1.8;
+    max-width: 510px;
+    margin-top: 24px;
 }
 
-.hero-buttons{
-    display:flex;
-
-    gap:14px;
-
-    margin-top:35px;
-
-    flex-wrap:wrap;
+.hero-buttons {
+    display: flex;
+    gap: 14px;
+    margin-top: 35px;
+    flex-wrap: wrap;
 }
 
 .button-primary,
-.button-secondary{
-    padding:16px 25px;
-
-    border-radius:6px;
-
-    font-size:12px;
-
-    font-weight:700;
-
-    letter-spacing:1px;
-
-    display:inline-flex;
-
-    align-items:center;
-    justify-content:center;
-
-    transition:.3s;
+.button-secondary {
+    padding: 16px 25px;
+    border-radius: 6px;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    transition: .3s;
 }
 
-.button-primary{
-    background:var(--purple);
+.button-primary { background: var(--purple); }
+
+.button-primary:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 30px rgba(139,92,246,.3);
 }
 
-.button-primary:hover{
-    transform:translateY(-3px);
-
-    box-shadow:
-        0 10px 30px
-        rgba(139,92,246,.3);
+.button-secondary {
+    border: 1px solid rgba(255,255,255,.15);
+    background: rgba(255,255,255,.03);
 }
 
-.button-secondary{
-    border:1px solid rgba(255,255,255,.15);
+.button-secondary:hover { background: rgba(255,255,255,.08); }
 
-    background:rgba(255,255,255,.03);
+.stats {
+    display: grid;
+    grid-template-columns: repeat(3, auto);
+    justify-content: start;
+    column-gap: 50px;
+    max-width: 650px;
+    margin-top: 65px;
+    border-top: 1px solid var(--border);
+    padding-top: 25px;
 }
 
-.button-secondary:hover{
-    background:rgba(255,255,255,.08);
+.stat h2 {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 25px;
 }
 
-
-/* =========================
-   STATS
-========================= */
-
-.stats{
-    display:grid;
-
-    grid-template-columns:
-        repeat(3,auto);
-
-    justify-content:start;
-
-    column-gap:50px;
-
-    max-width:650px;
-
-    margin-top:65px;
-
-    border-top:1px solid var(--border);
-
-    padding-top:25px;
+.stat p {
+    color: var(--gray);
+    font-size: 10px;
+    letter-spacing: 2px;
+    margin-top: 8px;
 }
 
-.stat h2{
-    font-family:'Orbitron',sans-serif;
+/* GENERAL SECTIONS */
 
-    font-size:28px;
+section.content-section {
+    padding: 135px 10% 90px;
+    min-height: 100vh;
 }
 
-.stat p{
-    color:var(--gray);
+.section-heading { margin-bottom: 55px; }
 
-    font-size:10px;
-
-    letter-spacing:2px;
-
-    margin-top:8px;
+.section-tag {
+    font-size: 10px;
+    letter-spacing: 4px;
+    color: var(--purple-light);
+    margin-bottom: 15px;
 }
 
-
-/* =========================
-   SECTIONS
-========================= */
-
-section.content-section{
-    padding:135px 10% 90px;
-
-    min-height:100vh;
+.section-heading h2 {
+    font-family: 'Orbitron', sans-serif;
+    font-size: clamp(30px, 4vw, 48px);
 }
 
-.section-heading{
-    margin-bottom:55px;
+.section-heading p {
+    color: var(--gray);
+    margin-top: 15px;
+    line-height: 1.8;
+    max-width: 600px;
 }
 
-.section-tag{
-    font-size:10px;
+/* ABOUT + QUOTES */
 
-    letter-spacing:4px;
-
-    color:var(--purple-light);
-
-    margin-bottom:15px;
+.about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 25px;
 }
 
-.section-heading h2{
-    font-family:'Orbitron',sans-serif;
-
-    font-size:clamp(30px,4vw,48px);
+.about-card {
+    padding: 35px;
+    background: var(--panel);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    transition: .3s;
+    position: relative;
+    overflow: hidden;
 }
 
-.section-heading p{
-    color:var(--gray);
-
-    margin-top:15px;
-
-    line-height:1.8;
-
-    max-width:600px;
+.about-card::after {
+    content: "";
+    position: absolute;
+    width: 130px;
+    height: 130px;
+    right: -50px;
+    bottom: -60px;
+    background: var(--purple);
+    opacity: .06;
+    filter: blur(45px);
+    border-radius: 50%;
 }
 
-
-/* =========================
-   ABOUT
-========================= */
-
-.about-grid{
-    display:grid;
-
-    grid-template-columns:
-        1fr 1fr;
-
-    gap:25px;
+.about-card:hover {
+    border-color: rgba(167,139,250,.35);
+    transform: translateY(-5px);
 }
 
-.about-card{
-    padding:35px;
-
-    background:var(--panel);
-
-    border:1px solid var(--border);
-
-    border-radius:12px;
-
-    transition:.3s;
+.about-card .icon {
+    font-size: 25px;
+    margin-bottom: 20px;
 }
 
-.about-card:hover{
-    border-color:rgba(167,139,250,.35);
-
-    transform:translateY(-5px);
+.about-card h3 {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 17px;
+    margin-bottom: 13px;
 }
 
-.about-card .icon{
-    font-size:25px;
-
-    margin-bottom:20px;
+.about-card p {
+    color: var(--gray);
+    line-height: 1.8;
+    font-size: 13px;
 }
 
-.about-card h3{
-    font-family:'Orbitron',sans-serif;
+/* TIMELINE */
 
-    font-size:17px;
-
-    margin-bottom:13px;
+.timeline {
+    position: relative;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 10px 0;
 }
 
-.about-card p{
-    color:var(--gray);
-
-    line-height:1.8;
-
-    font-size:13px;
+.timeline::before {
+    content: "";
+    position: absolute;
+    left: 31px;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: linear-gradient(
+        to bottom,
+        transparent,
+        rgba(139,92,246,.65) 5%,
+        rgba(139,92,246,.3) 90%,
+        transparent
+    );
 }
 
-
-/* =========================
-   TIMELINE
-========================= */
-
-.timeline{
-    display:flex;
-
-    flex-direction:column;
-
-    gap:20px;
-
-    border-left:2px solid rgba(139,92,246,.35);
-
-    padding-left:30px;
-
-    margin-left:10px;
+.timeline-item {
+    position: relative;
+    padding-left: 90px;
+    margin-bottom: 30px;
 }
 
-.timeline-item{
-    background:var(--panel);
+.timeline-item:last-child { margin-bottom: 0; }
 
-    border:1px solid var(--border);
-
-    border-radius:12px;
-
-    padding:28px 32px;
-
-    position:relative;
-
-    transition:.3s;
+.timeline-marker {
+    position: absolute;
+    left: 13px;
+    top: 30px;
+    width: 38px;
+    height: 38px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: #171321;
+    border: 2px solid var(--purple);
+    color: var(--purple-light);
+    font-family: 'Orbitron', sans-serif;
+    font-size: 10px;
+    font-weight: 700;
+    z-index: 2;
+    box-shadow: 0 0 22px rgba(139,92,246,.22);
 }
 
-.timeline-item:hover{
-    border-color:var(--purple);
+.timeline-card {
+    position: relative;
+    padding: 28px 32px;
+    background: linear-gradient(120deg, #13141e, #101117);
+    border: 1px solid var(--border);
+    border-radius: 13px;
+    overflow: hidden;
+    transition: .3s;
 }
 
-.timeline-item::before{
-    content:"";
-
-    position:absolute;
-
-    left:-37px;
-    top:32px;
-
-    width:12px;
-    height:12px;
-
-    border-radius:50%;
-
-    background:var(--purple);
-
-    box-shadow:
-        0 0 12px var(--purple);
+.timeline-card::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 3px;
+    height: 100%;
+    background: var(--purple);
+    opacity: .5;
+    transition: .3s;
 }
 
-.timeline-badge{
-    display:inline-block;
-
-    font-family:'Orbitron',sans-serif;
-
-    font-size:11px;
-
-    color:var(--purple-light);
-
-    background:rgba(139,92,246,.12);
-
-    padding:4px 10px;
-
-    border-radius:4px;
-
-    margin-bottom:12px;
+.timeline-card:hover {
+    transform: translateX(5px);
+    border-color: rgba(139,92,246,.45);
+    box-shadow: 0 15px 45px rgba(0,0,0,.2);
 }
 
-.timeline-item h3{
-    font-family:'Orbitron',sans-serif;
+.timeline-card:hover::after { opacity: 1; }
 
-    font-size:20px;
-
-    margin-bottom:10px;
+.timeline-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 15px;
+    flex-wrap: wrap;
+    margin-bottom: 16px;
 }
 
-.timeline-item p{
-    color:var(--gray);
-
-    font-size:14px;
-
-    line-height:1.7;
+.timeline-badge {
+    display: inline-block;
+    font-family: 'Orbitron', sans-serif;
+    font-size: 10px;
+    color: var(--purple-light);
+    background: rgba(139,92,246,.12);
+    border: 1px solid rgba(139,92,246,.2);
+    padding: 7px 11px;
+    border-radius: 4px;
+    letter-spacing: 1px;
 }
 
-
-/* =========================
-   STAFF
-========================= */
-
-.staff-grid{
-    display:grid;
-
-    grid-template-columns:
-        repeat(3,1fr);
-
-    gap:25px;
-
-    align-items:start;
+.timeline-server {
+    color: #9293a0;
+    font-size: 10px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
 }
 
-
-/* Большие карточки */
-
-.staff-card{
-    background:var(--panel);
-
-    border:1px solid var(--border);
-
-    border-radius:16px;
-
-    overflow:hidden;
-
-    transition:
-        transform .3s,
-        border-color .3s,
-        box-shadow .3s;
+.timeline-card h3 {
+    font-family: 'Orbitron', sans-serif;
+    font-size: clamp(17px, 2.5vw, 23px);
+    margin-bottom: 12px;
+    letter-spacing: .5px;
 }
 
-.staff-card:hover{
-    border-color:rgba(139,92,246,.5);
-
-    box-shadow:
-        0 15px 50px
-        rgba(0,0,0,.3);
+.timeline-card p {
+    color: var(--gray);
+    font-size: 13px;
+    line-height: 1.9;
+    max-width: 760px;
 }
 
-
-/* Кнопка карточки */
-
-.staff-card-header{
-    width:100%;
-
-    padding:35px 30px;
-
-    background:transparent;
-
-    text-align:left;
-
-    display:flex;
-
-    align-items:center;
-
-    justify-content:space-between;
-
-    gap:20px;
+.timeline-card.current {
+    background: linear-gradient(120deg, rgba(65,39,110,.25), #11131b 70%);
+    border-color: rgba(139,92,246,.35);
 }
 
-.staff-card-header:hover{
-    background:rgba(255,255,255,.025);
+.timeline-card.current .timeline-badge {
+    color: #fff;
+    background: var(--purple);
 }
 
-.staff-info{
-    display:flex;
+/* STAFF */
 
-    align-items:center;
-
-    gap:18px;
+.staff-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+    align-items: start;
 }
 
-
-/* Большой номер */
-
-.staff-number{
-    width:58px;
-    height:58px;
-
-    flex-shrink:0;
-
-    display:flex;
-
-    align-items:center;
-    justify-content:center;
-
-    border-radius:12px;
-
-    background:
-        rgba(139,92,246,.12);
-
-    border:
-        1px solid
-        rgba(139,92,246,.25);
-
-    color:var(--purple-light);
-
-    font-family:'Orbitron',sans-serif;
-
-    font-size:14px;
-
-    font-weight:700;
+.staff-card {
+    background: var(--panel);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    overflow: hidden;
+    transition: transform .3s, border-color .3s, box-shadow .3s;
 }
 
-
-/* Название */
-
-.staff-card h3{
-    font-family:'Orbitron',sans-serif;
-
-    font-size:19px;
-
-    margin-bottom:6px;
+.staff-card:not(.empty-card):hover {
+    border-color: rgba(139,92,246,.5);
+    box-shadow: 0 15px 50px rgba(0,0,0,.3);
 }
 
-.staff-role-description{
-    color:var(--gray);
-
-    font-size:12px;
+.staff-card-header {
+    width: 100%;
+    padding: 35px 30px;
+    background: transparent;
+    text-align: left;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
 }
 
-
-/* Стрелка */
-
-.staff-arrow{
-    color:var(--purple-light);
-
-    font-size:22px;
-
-    transition:
-        transform .3s;
+.staff-card:not(.empty-card) .staff-card-header:hover {
+    background: rgba(255,255,255,.025);
 }
 
-
-/* Открытая карточка */
-
-.staff-card.open
-.staff-arrow{
-    transform:rotate(180deg);
+.staff-info {
+    display: flex;
+    align-items: center;
+    gap: 18px;
 }
 
-
-/* Список ников */
-
-.staff-members{
-    max-height:0;
-
-    overflow:hidden;
-
-    opacity:0;
-
-    transition:
-        max-height .45s ease,
-        opacity .3s ease,
-        padding .3s ease;
+.staff-number {
+    width: 58px;
+    height: 58px;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 12px;
+    background: rgba(139,92,246,.12);
+    border: 1px solid rgba(139,92,246,.25);
+    color: var(--purple-light);
+    font-family: 'Orbitron', sans-serif;
+    font-size: 14px;
+    font-weight: 700;
 }
 
-.staff-card.open .staff-members{
-    max-height:500px;
-
-    opacity:1;
-
-    padding:
-        0 30px
-        25px;
+.staff-card h3 {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 19px;
+    margin-bottom: 6px;
 }
 
-
-/* Ник */
-
-.member{
-    display:flex;
-
-    align-items:center;
-
-    gap:12px;
-
-    padding:13px 15px;
-
-    margin-top:8px;
-
-    background:
-        rgba(255,255,255,.025);
-
-    border:
-        1px solid
-        rgba(255,255,255,.06);
-
-    border-radius:8px;
-
-    color:#d7d7df;
-
-    font-size:13px;
-
-    transition:.2s;
+.staff-role-description {
+    color: var(--gray);
+    font-size: 12px;
 }
 
-.member:hover{
-    border-color:
-        rgba(139,92,246,.3);
-
-    background:
-        rgba(139,92,246,.07);
-
-    transform:translateX(4px);
+.staff-arrow {
+    color: var(--purple-light);
+    font-size: 22px;
+    transition: transform .3s;
 }
 
-.member-dot{
-    width:7px;
-    height:7px;
+.staff-card.open .staff-arrow { transform: rotate(180deg); }
 
-    border-radius:50%;
-
-    background:var(--purple);
-
-    box-shadow:
-        0 0 8px
-        var(--purple);
+.staff-members {
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    transition: max-height .45s ease, opacity .3s ease, padding .3s ease;
 }
 
-
-/* =========================
-   MODAL
-========================= */
-
-.modal-overlay{
-    position:fixed;
-
-    inset:0;
-
-    background:
-        rgba(8,9,13,.85);
-
-    backdrop-filter:blur(10px);
-
-    display:none;
-
-    align-items:center;
-    justify-content:center;
-
-    z-index:2000;
-
-    padding:20px;
+.staff-card.open .staff-members {
+    max-height: 500px;
+    opacity: 1;
+    padding: 0 30px 25px;
 }
 
-.modal-overlay.active{
-    display:flex;
+.member {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 13px 15px;
+    margin-top: 8px;
+    background: rgba(255,255,255,.025);
+    border: 1px solid rgba(255,255,255,.06);
+    border-radius: 8px;
+    color: #d7d7df;
+    font-size: 13px;
+    transition: .2s;
 }
 
-.modal-box{
-    background:var(--panel);
-
-    border:
-        1px solid
-        rgba(139,92,246,.3);
-
-    border-radius:14px;
-
-    padding:35px;
-
-    max-width:440px;
-
-    width:100%;
-
-    position:relative;
-
-    box-shadow:
-        0 20px 80px
-        rgba(0,0,0,.5);
+.member:hover {
+    border-color: rgba(139,92,246,.3);
+    background: rgba(139,92,246,.07);
+    transform: translateX(4px);
 }
 
-.modal-close{
-    position:absolute;
-
-    top:18px;
-    right:20px;
-
-    background:transparent;
-
-    color:var(--gray);
-
-    font-size:25px;
-
-    transition:.2s;
+.member-dot {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: var(--purple);
+    box-shadow: 0 0 8px var(--purple);
 }
 
-.modal-close:hover{
-    color:white;
+/* EMPTY DEPUTY CARD */
+
+.empty-card {
+    border-style: dashed;
+    border-color: rgba(255,255,255,.09);
+    cursor: default;
 }
 
-.modal-box h3{
-    font-family:'Orbitron',sans-serif;
-
-    font-size:20px;
-
-    margin-bottom:8px;
+.empty-card .staff-card-header {
+    cursor: default;
 }
 
-.modal-box p{
-    color:var(--gray);
-
-    font-size:13px;
-
-    margin-bottom:20px;
-
-    line-height:1.6;
+.empty-card .staff-card-header:hover {
+    background: transparent;
 }
 
-.form-group{
-    margin-bottom:15px;
+.empty-card .staff-number {
+    background: rgba(255,255,255,.035);
+    border-color: rgba(255,255,255,.08);
+    color: #777987;
 }
+
+.empty-card .staff-role-description { color: #777987; }
+.empty-card .staff-arrow { display: none; }
+
+.empty-card .empty-status {
+    color: #777987;
+    font-size: 12px;
+    padding: 0 30px 30px;
+}
+
+/* MODAL */
+
+.modal-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(8,9,13,.85);
+    backdrop-filter: blur(10px);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 2000;
+    padding: 20px;
+}
+
+.modal-overlay.active { display: flex; }
+
+.modal-box {
+    background: var(--panel);
+    border: 1px solid rgba(139,92,246,.3);
+    border-radius: 14px;
+    padding: 35px;
+    max-width: 440px;
+    width: 100%;
+    position: relative;
+    box-shadow: 0 20px 80px rgba(0,0,0,.5);
+}
+
+.modal-close {
+    position: absolute;
+    top: 18px;
+    right: 20px;
+    background: transparent;
+    color: var(--gray);
+    font-size: 25px;
+    transition: .2s;
+}
+
+.modal-close:hover { color: white; }
+
+.modal-box h3 {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 20px;
+    margin-bottom: 8px;
+}
+
+.modal-box p {
+    color: var(--gray);
+    font-size: 13px;
+    margin-bottom: 20px;
+    line-height: 1.6;
+}
+
+.form-group { margin-bottom: 15px; }
 
 .form-group input,
-.form-group textarea{
-    width:100%;
-
-    padding:12px 14px;
-
-    background:var(--bg);
-
-    border:1px solid var(--border);
-
-    border-radius:6px;
-
-    color:var(--white);
-
-    font-size:13px;
-
-    outline:none;
-
-    resize:vertical;
-
-    font-family:'DM Sans',sans-serif;
+.form-group textarea {
+    width: 100%;
+    padding: 12px 14px;
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    color: var(--white);
+    font-size: 13px;
+    outline: none;
+    resize: vertical;
+    font-family: 'DM Sans', sans-serif;
 }
 
 .form-group input:focus,
-.form-group textarea:focus{
-    border-color:var(--purple);
-
-    box-shadow:
-        0 0 0 2px
-        rgba(139,92,246,.1);
+.form-group textarea:focus {
+    border-color: var(--purple);
+    box-shadow: 0 0 0 2px rgba(139,92,246,.1);
 }
 
+/* FOOTER */
 
-/* =========================
-   FOOTER
-========================= */
-
-footer{
-    padding:35px 10%;
-
-    border-top:1px solid var(--border);
-
-    display:flex;
-
-    align-items:center;
-
-    justify-content:space-between;
-
-    gap:20px;
+footer {
+    padding: 35px 10%;
+    border-top: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
 }
 
-footer p{
-    color:var(--gray);
-
-    font-size:11px;
+footer p {
+    color: var(--gray);
+    font-size: 11px;
 }
 
-.footer-logo{
-    font-family:'Orbitron',sans-serif;
-
-    font-size:13px;
-
-    letter-spacing:2px;
+.footer-logo {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 13px;
+    letter-spacing: 2px;
 }
 
+/* RESPONSIVE */
 
-/* =========================
-   MOBILE
-========================= */
-
-@media(max-width:900px){
-
-    .navbar{
-        min-height:auto;
-
-        flex-wrap:wrap;
-
-        padding:12px 5%;
-
-        gap:12px;
+@media(max-width: 900px) {
+    .navbar {
+        min-height: auto;
+        flex-wrap: wrap;
+        padding: 12px 5%;
+        gap: 12px;
     }
 
-    .nav-links{
-        width:100%;
-
-        overflow-x:auto;
-
-        padding-bottom:4px;
-
-        gap:15px;
-
-        scrollbar-width:none;
+    .nav-links {
+        width: 100%;
+        overflow-x: auto;
+        padding-bottom: 4px;
+        gap: 15px;
+        scrollbar-width: none;
     }
 
-    .nav-links::-webkit-scrollbar{
-        display:none;
+    .nav-links::-webkit-scrollbar { display: none; }
+    .tab-btn { white-space: nowrap; }
+
+    .hero {
+        padding-top: 150px;
+        padding-left: 7%;
+        padding-right: 7%;
+        background-size: cover, cover, 85%;
     }
 
-    .tab-btn{
-        white-space:nowrap;
-    }
-
-    .hero{
-        padding-top:150px;
-
-        padding-left:7%;
-        padding-right:7%;
-
-        background-size:
-            cover,
-            cover,
-            85%;
-    }
-
-    section.content-section{
-        padding:
-            145px
-            7%
-            80px;
-    }
-
-    .about-grid{
-        grid-template-columns:1fr;
-    }
-
-    .staff-grid{
-        grid-template-columns:1fr;
-    }
-
-    .stats{
-        column-gap:25px;
-    }
+    section.content-section { padding: 145px 7% 80px; }
+    .about-grid { grid-template-columns: 1fr; }
+    .staff-grid { grid-template-columns: 1fr; }
+    .stats { column-gap: 25px; }
 }
 
+@media(max-width: 550px) {
+    .logo-text { font-size: 13px; }
+    .logo-icon { width: 38px; height: 38px; }
+    .hero h1 { letter-spacing: -2px; }
 
-@media(max-width:550px){
-
-    .logo-text{
-        font-size:13px;
-    }
-
-    .logo-icon{
-        width:38px;
-        height:38px;
-    }
-
-    .hero h1{
-        letter-spacing:-2px;
-    }
-
-    .hero-buttons{
-        flex-direction:column;
-        align-items:stretch;
+    .hero-buttons {
+        flex-direction: column;
+        align-items: stretch;
     }
 
     .button-primary,
-    .button-secondary{
-        width:100%;
+    .button-secondary { width: 100%; }
+
+    .stats {
+        grid-template-columns: 1fr;
+        row-gap: 20px;
     }
 
-    .stats{
-        grid-template-columns:1fr;
-
-        row-gap:20px;
+    footer {
+        flex-direction: column;
+        text-align: center;
     }
 
-    footer{
-        flex-direction:column;
+    .timeline { padding-left: 0; }
+    .timeline::before { left: 17px; }
 
-        text-align:center;
+    .timeline-item {
+        padding-left: 48px;
+        margin-bottom: 20px;
     }
 
-    .timeline{
-        padding-left:20px;
+    .timeline-marker {
+        left: 0;
+        width: 36px;
+        height: 36px;
     }
 
-    .timeline-item::before{
-        left:-27px;
+    .timeline-card { padding: 22px 20px; }
+
+    .modal-box { padding: 28px 22px; }
+
+    .staff-card-header { padding: 28px 22px; }
+
+    .staff-card.open .staff-members {
+        padding: 0 22px 20px;
     }
 
-    .modal-box{
-        padding:28px 22px;
+    .staff-number {
+        width: 50px;
+        height: 50px;
     }
 
-    .staff-card-header{
-        padding:28px 22px;
-    }
-
-    .staff-card.open .staff-members{
-        padding:
-            0 22px
-            20px;
-    }
-
-    .staff-number{
-        width:50px;
-        height:50px;
-    }
-
-    .staff-card h3{
-        font-size:16px;
-    }
+    .staff-card h3 { font-size: 16px; }
+    .empty-card .empty-status { padding: 0 22px 25px; }
 }
-
 </style>
 </head>
 
-
 <body>
 
-
-<!-- =========================
-     NAVBAR
-========================= -->
-
 <nav class="navbar">
-
-    <div
-        class="logo"
-        onclick="openTab('home')"
-    >
-
-        <img
-            src="logo.png"
-            alt="FiXiK CLXN"
-            class="logo-icon"
-        >
-
-        <div class="logo-text">
-            FiXiK WEB
-        </div>
-
+    <div class="logo" onclick="openTab('home')">
+        <img src="logo.png" alt="FiXiK CLXN" class="logo-icon">
+        <div class="logo-text">FiXiK WEB</div>
     </div>
-
 
     <div class="nav-links">
-
-        <button
-            class="tab-btn active"
-            data-tab="home"
-            onclick="openTab('home')"
-        >
-            Главная
-        </button>
-
-        <button
-            class="tab-btn"
-            data-tab="about"
-            onclick="openTab('about')"
-        >
-            О клане
-        </button>
-
-        <button
-            class="tab-btn"
-            data-tab="history"
-            onclick="openTab('history')"
-        >
-            Наш путь
-        </button>
-
-        <button
-            class="tab-btn"
-            data-tab="staff"
-            onclick="openTab('staff')"
-        >
-            Состав
-        </button>
-
-        <button
-            class="nav-button"
-            onclick="openModal()"
-        >
-            ВСТУПИТЬ
-        </button>
-
+        <button class="tab-btn active" data-tab="home" onclick="openTab('home')">Главная</button>
+        <button class="tab-btn" data-tab="about" onclick="openTab('about')">О клане</button>
+        <button class="tab-btn" data-tab="history" onclick="openTab('history')">Наш путь</button>
+        <button class="tab-btn" data-tab="staff" onclick="openTab('staff')">Состав</button>
+        <button class="nav-button" onclick="openModal()">ВСТУПИТЬ</button>
     </div>
-
 </nav>
-
-
 
 <main>
 
+<!-- HOME -->
 
-<!-- =========================
-     HOME
-========================= -->
-
-<div
-    id="tab-home"
-    class="tab-page active"
->
-
+<div id="tab-home" class="tab-page active">
     <header class="hero">
-
         <div class="hero-content">
 
             <div class="label">
-
                 <span class="label-dot"></span>
-
                 MAJESTIC RP • MEMPHIS
-
             </div>
 
-
-            <h1>
-                FiXiK
-                <span>CLXN</span>
-            </h1>
-
+            <h1>FiXiK <span>CLXN</span></h1>
 
             <p class="hero-description">
-
-                FiXiK CLXN — клан на Majestic RP
-                на сервере Memphis.
-
+                FiXiK CLXN — клан на Majestic RP на сервере Memphis.
                 Команда, характер и общая история.
-
             </p>
 
-
             <div class="hero-buttons">
-
-                <button
-                    class="button-primary"
-                    onclick="openModal()"
-                >
-                    ПОДАТЬ ЗАЯВКУ
-                </button>
-
-
-                <button
-                    class="button-secondary"
-                    onclick="openTab('history')"
-                >
-                    НАШ ПУТЬ
-                </button>
-
+                <button class="button-primary" onclick="openModal()">ПОДАТЬ ЗАЯВКУ</button>
+                <button class="button-secondary" onclick="openTab('history')">НАШ ПУТЬ</button>
             </div>
 
-
-            <!-- ТУТ ТЕПЕРЬ FiXiK CLXN ВМЕСТО 01 -->
-
             <div class="stats">
-
                 <div class="stat">
-
-                    <h2>
-                        FiXiK CLXN
-                    </h2>
-
-                    <p>
-                        CLAN
-                    </p>
-
+                    <h2>FiXiK CLXN</h2>
+                    <p>CLAN</p>
                 </div>
 
-
                 <div class="stat">
-
-                    <h2>
-                        MEMPHIS
-                    </h2>
-
-                    <p>
-                        SERVER
-                    </p>
-
+                    <h2>MEMPHIS</h2>
+                    <p>SERVER</p>
                 </div>
 
-
                 <div class="stat">
-
-                    <h2>
-                        ∞
-                    </h2>
-
-                    <p>
-                        POTENTIAL
-                    </p>
-
+                    <h2>∞</h2>
+                    <p>POTENTIAL</p>
                 </div>
-
             </div>
 
         </div>
-
     </header>
-
 </div>
 
+<!-- ABOUT -->
 
-
-<!-- =========================
-     ABOUT
-========================= -->
-
-<div
-    id="tab-about"
-    class="tab-page"
->
-
+<div id="tab-about" class="tab-page">
     <section class="content-section">
 
         <div class="section-heading">
-
-            <div class="section-tag">
-                ABOUT CLAN
-            </div>
-
-            <h2>
-                О клане
-            </h2>
-
+            <div class="section-tag">ABOUT CLAN</div>
+            <h2>О клане</h2>
             <p>
-                FiXiK CLXN — это клан Majestic RP
-                на сервере Memphis.
-
-                Мы собираем людей, которые хотят
-                играть вместе, развиваться
-                и создавать свою историю.
+                FiXiK CLXN — это клан Majestic RP на сервере Memphis.
+                Мы собираем людей, которые хотят играть вместе,
+                развиваться и создавать свою историю.
             </p>
-
         </div>
-
 
         <div class="about-grid">
 
-
             <div class="about-card">
-
-                <div class="icon">
-                    ⚡
-                </div>
-
-                <h3>
-                    Свой стиль
-                </h3>
-
-                <p>
-                    У FiXiK CLXN свой характер,
-                    атмосфера и собственная
-                    идентичность.
-                </p>
-
+                <div class="icon">💰</div>
+                <h3>О бабках</h3>
+                <p>«Сила в бабках именно по этому мы слабые.»</p>
             </div>
 
-
             <div class="about-card">
-
-                <div class="icon">
-                    👥
-                </div>
-
-                <h3>
-                    Команда
-                </h3>
-
-                <p>
-                    Мы играем как единая команда
-                    и поддерживаем участников
-                    клана.
-                </p>
-
+                <div class="icon">♛</div>
+                <h3>Компететив</h3>
+                <p>«Когда мы регаем МЦЛ, все боятся попасться в нашу группу.»</p>
             </div>
 
-
             <div class="about-card">
-
-                <div class="icon">
-                    🏆
-                </div>
-
-                <h3>
-                    Развитие
-                </h3>
-
-                <p>
-                    Постепенно развиваем клан,
-                    состав и наше присутствие
-                    на сервере.
-                </p>
-
+                <div class="icon">◈</div>
+                <h3>Цитата</h3>
+                <p>«Если закрыть глаза, становится темно.»</p>
             </div>
 
-
             <div class="about-card">
-
-                <div class="icon">
-                    🔥
-                </div>
-
-                <h3>
-                    Атмосфера
-                </h3>
-
-                <p>
-                    Главное — нормальная атмосфера,
-                    актив и удовольствие
-                    от игры.
-                </p>
-
+                <div class="icon">✦</div>
+                <h3>Реальность</h3>
+                <p>«Кто рано встает — тому весь день спать хочется.»</p>
             </div>
-
 
         </div>
-
     </section>
-
 </div>
 
+<!-- HISTORY / TIMELINE -->
 
-
-<!-- =========================
-     HISTORY
-========================= -->
-
-<div
-    id="tab-history"
-    class="tab-page"
->
-
+<div id="tab-history" class="tab-page">
     <section class="content-section">
 
         <div class="section-heading">
-
-            <div class="section-tag">
-                OUR HISTORY
-            </div>
-
-            <h2>
-                Наш путь
-            </h2>
-
+            <div class="section-tag">OUR HISTORY</div>
+            <h2>Наш путь</h2>
             <p>
-                История развития FiXiK CLXN
-                и людей, которые создают
-                клан вместе.
+                За каждым этапом стоит свой опыт, свои люди и свои моменты.
+                Всё это постепенно привело нас к FiXiK CLXN.
             </p>
-
         </div>
-
 
         <div class="timeline">
 
+            <!-- 01 GREENKILLAZ -->
 
             <div class="timeline-item">
+                <div class="timeline-marker">01</div>
 
-                <span class="timeline-badge">
-                    01
-                </span>
+                <div class="timeline-card">
+                    <div class="timeline-top">
+                        <span class="timeline-badge">FIRST CHAPTER</span>
+                        <span class="timeline-server">SVO CLAN • PHOENIX</span>
+                    </div>
 
-                <h3>
-                    Начало
-                </h3>
+                    <h3>GREENKILLAZ FAMQ</h3>
 
-                <p>
-                    Создание FiXiK CLXN
-                    и формирование первых
-                    участников клана.
-                </p>
-
+                    <p>
+                        Именно с GREENKILLAZ FAMQ началась важная часть нашего
+                        игрового пути. Первые серьёзные капты, командный вайб,
+                        эмоции и моменты, которые запоминаются надолго.
+                        Здесь мы получили первые впечатления от настоящей
+                        командной игры и почувствовали атмосферу большой семьи.
+                    </p>
+                </div>
             </div>
 
+            <!-- 02 FORBES -->
 
             <div class="timeline-item">
+                <div class="timeline-marker">02</div>
 
-                <span class="timeline-badge">
-                    02
-                </span>
+                <div class="timeline-card">
+                    <div class="timeline-top">
+                        <span class="timeline-badge">NEXT STEP</span>
+                        <span class="timeline-server">RONALDO</span>
+                    </div>
 
-                <h3>
-                    Формирование состава
-                </h3>
+                    <h3>FORBES</h3>
 
-                <p>
-                    Появляются первые постоянные
-                    участники и формируется
-                    структура клана.
-                </p>
-
+                    <p>
+                        Следующий этап нашего пути — Forbes.
+                        Новый опыт, новые знакомства и возможность
+                        продолжить развиваться в командной игре.
+                    </p>
+                </div>
             </div>
 
+            <!-- 03 ZENITH -->
 
             <div class="timeline-item">
+                <div class="timeline-marker">03</div>
 
-                <span class="timeline-badge">
-                    03
-                </span>
+                <div class="timeline-card">
+                    <div class="timeline-top">
+                        <span class="timeline-badge">TEAM BUILDING</span>
+                        <span class="timeline-server">MEMPHIS</span>
+                    </div>
 
-                <h3>
-                    Развитие
-                </h3>
+                    <h3>ZENITH</h3>
 
-                <p>
-                    Клан развивается,
-                    появляются новые направления,
-                    активности и совместные цели.
-                </p>
-
+                    <p>
+                        В Zenith мы начали наигрывать команду в группах.
+                        Постепенно появлялась сыгранность, понимание
+                        друг друга и более уверенная командная игра.
+                    </p>
+                </div>
             </div>
 
+            <!-- 04 SACRED -->
 
             <div class="timeline-item">
+                <div class="timeline-marker">04</div>
 
-                <span class="timeline-badge">
-                    04
-                </span>
+                <div class="timeline-card">
+                    <div class="timeline-top">
+                        <span class="timeline-badge">EXPERIENCE</span>
+                        <span class="timeline-server">PORTLAND</span>
+                    </div>
 
-                <h3>
-                    Новый уровень
-                </h3>
+                    <h3>SACRED</h3>
 
-                <p>
-                    FiXiK CLXN продолжает
-                    развиваться и расширять
-                    свой состав на Memphis.
-                </p>
-
+                    <p>
+                        Sacred стал ещё одним хорошим этапом.
+                        Получили полезный опыт, сыграли с разными
+                        игроками и вынесли для себя много нового.
+                    </p>
+                </div>
             </div>
 
+            <!-- 05 PSYCHOTROPIC -->
+
+            <div class="timeline-item">
+                <div class="timeline-marker">05</div>
+
+                <div class="timeline-card">
+                    <div class="timeline-top">
+                        <span class="timeline-badge">HIGH LEVEL</span>
+                        <span class="timeline-server">MEMPHIS</span>
+                    </div>
+
+                    <h3>PSYCHOTROPIC</h3>
+
+                    <p>
+                        Один из самых полезных этапов нашего пути.
+                        Мы получили очень хороший опыт, играя рядом
+                        с опытными коллерами и сильными игроками.
+                        Это помогло лучше понять капты, коммуникацию
+                        и то, как должна работать сыгранная команда.
+                    </p>
+                </div>
+            </div>
+
+            <!-- 06 ROCKET / GACHIMOV -->
+
+            <div class="timeline-item">
+                <div class="timeline-marker">06</div>
+
+                <div class="timeline-card">
+                    <div class="timeline-top">
+                        <span class="timeline-badge">DIFFERENT PATHS</span>
+                        <span class="timeline-server">RONALDO × MEMPHIS</span>
+                    </div>
+
+                    <h3>ROCKET × GACHIMOV</h3>
+
+                    <p>
+                        В этот период Саня и Витос играли в Rocket,
+                        а Валера в это же время находился в Gachimov.
+                        Каждый продолжал набирать собственный опыт,
+                        который в дальнейшем пригодился для развития
+                        нашей команды.
+                    </p>
+                </div>
+            </div>
+
+            <!-- 07 CURRENT -->
+
+            <div class="timeline-item">
+                <div class="timeline-marker">07</div>
+
+                <div class="timeline-card current">
+                    <div class="timeline-top">
+                        <span class="timeline-badge">CURRENT CHAPTER</span>
+                        <span class="timeline-server">MEMPHIS • FIXIK CLXN</span>
+                    </div>
+
+                    <h3>НОВЫЙ ЭТАП — FiXiK CLXN</h3>
+
+                    <p>
+                        Сейчас мы продолжаем наигрывать новичков в семьях
+                        попроще, чтобы они набирались опыта, привыкали
+                        к командной игре и постепенно становились сильнее.
+                        Наша цель — собрать сыгранный состав и двигаться
+                        дальше уже под собственным названием.
+                    </p>
+                </div>
+            </div>
 
         </div>
-
     </section>
-
 </div>
 
+<!-- STAFF -->
 
-
-<!-- =========================
-     STAFF
-========================= -->
-
-<div
-    id="tab-staff"
-    class="tab-page"
->
-
+<div id="tab-staff" class="tab-page">
     <section class="content-section">
 
         <div class="section-heading">
-
-            <div class="section-tag">
-                CLAN MEMBERS
-            </div>
-
-            <h2>
-                Состав
-            </h2>
-
-            <p>
-                Нажми на должность,
-                чтобы увидеть участников.
-            </p>
-
+            <div class="section-tag">CLAN MEMBERS</div>
+            <h2>Состав</h2>
+            <p>Нажми на должность, чтобы увидеть участников.</p>
         </div>
-
 
         <div class="staff-grid">
 
-
-            <!-- OWNER -->
-
             <div class="staff-card">
-
-                <button
-                    class="staff-card-header"
-                    onclick="toggleStaff(this)"
-                >
-
+                <button class="staff-card-header" onclick="toggleStaff(this)">
                     <div class="staff-info">
-
-                        <div class="staff-number">
-                            01
-                        </div>
-
+                        <div class="staff-number">01</div>
                         <div>
-
-                            <h3>
-                                OWNER
-                            </h3>
-
-                            <div class="staff-role-description">
-                                Руководство клана
-                            </div>
-
+                            <h3>OWNER</h3>
+                            <div class="staff-role-description">Руководство клана</div>
                         </div>
-
                     </div>
-
-
-                    <div class="staff-arrow">
-                        ▼
-                    </div>
-
+                    <div class="staff-arrow">▼</div>
                 </button>
 
-
                 <div class="staff-members">
-
-                    <div class="member">
-
-                        <span class="member-dot"></span>
-
-                        Valeriy Fixikz
-
-                    </div>
-
-
-                    <div class="member">
-
-                        <span class="member-dot"></span>
-
-                        Borik Fixikz
-
-                    </div>
-
+                    <div class="member"><span class="member-dot"></span>Valeriy Fixikz</div>
+                    <div class="member"><span class="member-dot"></span>Borik Fixikz</div>
                 </div>
-
             </div>
 
+            <!-- EMPTY DEPUTY: NO HOVER, NO CLICK -->
 
+            <div class="staff-card empty-card">
+                <div class="staff-card-header">
+                    <div class="staff-info">
+                        <div class="staff-number">02</div>
+                        <div>
+                            <h3>DEPUTY</h3>
+                            <div class="staff-role-description">Заместители</div>
+                        </div>
+                    </div>
+                </div>
 
-            <!-- DEPUTY -->
+                <div class="empty-status">Пока что нету</div>
+            </div>
 
             <div class="staff-card">
-
-                <button
-                    class="staff-card-header"
-                    onclick="toggleStaff(this)"
-                >
-
+                <button class="staff-card-header" onclick="toggleStaff(this)">
                     <div class="staff-info">
-
-                        <div class="staff-number">
-                            02
-                        </div>
-
+                        <div class="staff-number">03</div>
                         <div>
-
-                            <h3>
-                                DEPUTY
-                            </h3>
-
-                            <div class="staff-role-description">
-                                Заместители
-                            </div>
-
+                            <h3>MAIN</h3>
+                            <div class="staff-role-description">Основной состав</div>
                         </div>
-
                     </div>
-
-
-                    <div class="staff-arrow">
-                        ▼
-                    </div>
-
+                    <div class="staff-arrow">▼</div>
                 </button>
 
-
                 <div class="staff-members">
-
-                    <div class="member">
-
-                        <span class="member-dot"></span>
-
-                        Пока что нету
-
-                    </div>
-
+                    <div class="member"><span class="member-dot"></span>Alexandr Fixik</div>
+                    <div class="member"><span class="member-dot"></span>Vitos Fixik</div>
+                    <div class="member"><span class="member-dot"></span>Vasek Fixik</div>
+                    <div class="member"><span class="member-dot"></span>Misha Fixik</div>
+                    <div class="member"><span class="member-dot"></span>Denchik Fixik</div>
+                    <div class="member"><span class="member-dot"></span>Yasha Fixik</div>
                 </div>
-
             </div>
-
-
-
-            <!-- MAIN -->
-
-            <div class="staff-card">
-
-                <button
-                    class="staff-card-header"
-                    onclick="toggleStaff(this)"
-                >
-
-                    <div class="staff-info">
-
-                        <div class="staff-number">
-                            03
-                        </div>
-
-                        <div>
-
-                            <h3>
-                                MAIN
-                            </h3>
-
-                            <div class="staff-role-description">
-                                Основной состав
-                            </div>
-
-                        </div>
-
-                    </div>
-
-
-                    <div class="staff-arrow">
-                        ▼
-                    </div>
-
-                </button>
-
-
-                <div class="staff-members">
-
-
-                    <div class="member">
-                        <span class="member-dot"></span>
-                        Alexandr Fixik
-                    </div>
-
-
-                    <div class="member">
-                        <span class="member-dot"></span>
-                        Vitos Fixik
-                    </div>
-
-
-                    <div class="member">
-                        <span class="member-dot"></span>
-                        Vasek Fixik
-                    </div>
-
-
-                    <div class="member">
-                        <span class="member-dot"></span>
-                        Misha Fixik
-                    </div>
-
-
-                    <div class="member">
-                        <span class="member-dot"></span>
-                        Denchik Fixik
-                    </div>
-
-
-                    <div class="member">
-                        <span class="member-dot"></span>
-                        Yasha Fixik
-                    </div>
-
-
-                </div>
-
-            </div>
-
 
         </div>
-
     </section>
-
 </div>
-
 
 </main>
 
-
-
-<!-- =========================
-     FOOTER
-========================= -->
+<!-- FOOTER -->
 
 <footer>
-
-    <div class="footer-logo">
-        FiXiK CLXN
-    </div>
-
-    <p>
-        © 2026 FiXiK CLXN • Majestic RP • Memphis
-    </p>
-
+    <div class="footer-logo">FiXiK CLXN</div>
+    <p>© 2026 FiXiK CLXN • Majestic RP • Memphis</p>
 </footer>
 
+<!-- JOIN MODAL -->
 
-
-<!-- =========================
-     MODAL
-========================= -->
-
-<div
-    class="modal-overlay"
-    id="joinModal"
->
-
+<div class="modal-overlay" id="joinModal">
     <div class="modal-box">
 
-        <button
-            class="modal-close"
-            onclick="closeModal()"
-        >
-            ×
-        </button>
+        <button class="modal-close" onclick="closeModal()">×</button>
 
+        <h3>Вступить в FiXiK</h3>
+        <p>Заполни заявку, если хочешь присоединиться к нашему клану.</p>
 
-        <h3>
-            Вступить в FiXiK
-        </h3>
-
-
-        <p>
-            Заполни заявку, если хочешь
-            присоединиться к нашему клану.
-        </p>
-
-
-        <form
-            id="applicationForm"
-            onsubmit="submitApplication(event)"
-        >
+        <form id="applicationForm" onsubmit="submitApplication(event)">
 
             <div class="form-group">
-
-                <input
-                    type="text"
-                    id="nickname"
-                    placeholder="Твой ник"
-                    required
-                >
-
+                <input type="text" id="nickname" placeholder="Твой ник" required>
             </div>
-
 
             <div class="form-group">
-
-                <input
-                    type="number"
-                    id="age"
-                    placeholder="Возраст"
-                    min="14"
-                    max="99"
-                    required
-                >
-
+                <input type="number" id="age" placeholder="Возраст" min="14" max="99" required>
             </div>
-
 
             <div class="form-group">
-
-                <textarea
-                    id="about"
-                    placeholder="Расскажи немного о себе"
-                    rows="5"
-                    required
-                ></textarea>
-
+                <textarea id="about" placeholder="Расскажи немного о себе" rows="5" required></textarea>
             </div>
 
-
-            <button
-                type="submit"
-                class="button-primary"
-                style="width:100%;"
-            >
+            <button type="submit" class="button-primary" style="width:100%;">
                 ОТПРАВИТЬ ЗАЯВКУ
             </button>
 
         </form>
-
     </div>
-
 </div>
-
-
 
 <script>
 
-
-/* =========================
-   ВКЛАДКИ
-========================= */
-
-function openTab(tabName){
-
-    document
-        .querySelectorAll('.tab-page')
-        .forEach(function(page){
-
-            page.classList.remove('active');
-
-        });
-
-
-    const selectedPage =
-        document.getElementById(
-            'tab-' + tabName
-        );
-
-
-    if(selectedPage){
-
-        selectedPage.classList.add('active');
-
-    }
-
-
-    document
-        .querySelectorAll('.tab-btn')
-        .forEach(function(button){
-
-            button.classList.remove('active');
-
-
-            if(
-                button.dataset.tab === tabName
-            ){
-
-                button.classList.add('active');
-
-            }
-
-        });
-
-
-    window.scrollTo({
-        top:0,
-        behavior:'smooth'
+function openTab(tabName) {
+    document.querySelectorAll('.tab-page').forEach(function(page) {
+        page.classList.remove('active');
     });
 
-}
+    const selectedPage = document.getElementById('tab-' + tabName);
 
-
-
-/* =========================
-   СОСТАВ
-========================= */
-
-function toggleStaff(button){
-
-    const card =
-        button.closest('.staff-card');
-
-
-    if(!card){
-        return;
+    if (selectedPage) {
+        selectedPage.classList.add('active');
     }
 
+    document.querySelectorAll('.tab-btn').forEach(function(button) {
+        button.classList.remove('active');
 
-    const isOpen =
-        card.classList.contains('open');
+        if (button.dataset.tab === tabName) {
+            button.classList.add('active');
+        }
+    });
 
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+}
 
-    /*
-       Если открываем одну карточку,
-       закрываем остальные.
-    */
+function toggleStaff(button) {
+    const card = button.closest('.staff-card');
 
-    document
-        .querySelectorAll('.staff-card')
-        .forEach(function(otherCard){
+    if (!card || card.classList.contains('empty-card')) return;
 
-            otherCard.classList.remove('open');
+    const isOpen = card.classList.contains('open');
 
-        });
+    document.querySelectorAll('.staff-card').forEach(function(otherCard) {
+        otherCard.classList.remove('open');
+    });
 
-
-    /*
-       Если выбранная была закрыта —
-       открываем её.
-    */
-
-    if(!isOpen){
-
+    if (!isOpen) {
         card.classList.add('open');
-
     }
-
 }
 
+function openModal() {
+    const modal = document.getElementById('joinModal');
 
-
-/* =========================
-   MODAL
-========================= */
-
-function openModal(){
-
-    const modal =
-        document.getElementById(
-            'joinModal'
-        );
-
-
-    if(modal){
-
+    if (modal) {
         modal.classList.add('active');
-
-        document.body.style.overflow =
-            'hidden';
-
+        document.body.style.overflow = 'hidden';
     }
-
 }
 
+function closeModal() {
+    const modal = document.getElementById('joinModal');
 
-function closeModal(){
-
-    const modal =
-        document.getElementById(
-            'joinModal'
-        );
-
-
-    if(modal){
-
+    if (modal) {
         modal.classList.remove('active');
-
-        document.body.style.overflow =
-            '';
-
+        document.body.style.overflow = '';
     }
-
 }
 
+document.addEventListener('click', function(event) {
+    const modal = document.getElementById('joinModal');
 
-
-/* =========================
-   КЛИК ПО ФОНУ
-========================= */
-
-document.addEventListener(
-    'click',
-    function(event){
-
-        const modal =
-            document.getElementById(
-                'joinModal'
-            );
-
-
-        if(
-            modal &&
-            event.target === modal
-        ){
-
-            closeModal();
-
-        }
-
+    if (modal && event.target === modal) {
+        closeModal();
     }
-);
+});
 
-
-
-/* =========================
-   ESC
-========================= */
-
-document.addEventListener(
-    'keydown',
-    function(event){
-
-        if(
-            event.key === 'Escape'
-        ){
-
-            closeModal();
-
-        }
-
+document.addEventListener('keydown', function(event) {
+    if (event.key === 'Escape') {
+        closeModal();
     }
-);
+});
 
-
-
-/* =========================
-   ФОРМА
-========================= */
-
-function submitApplication(event){
-
+function submitApplication(event) {
     event.preventDefault();
 
+    const nickname = document.getElementById('nickname').value.trim();
+    const age = document.getElementById('age').value.trim();
+    const about = document.getElementById('about').value.trim();
 
-    const nickname =
-        document
-            .getElementById('nickname')
-            .value
-            .trim();
-
-
-    const age =
-        document
-            .getElementById('age')
-            .value
-            .trim();
-
-
-    const about =
-        document
-            .getElementById('about')
-            .value
-            .trim();
-
-
-    if(
-        !nickname ||
-        !age ||
-        !about
-    ){
-
-        alert(
-            'Заполни все поля!'
-        );
-
+    if (!nickname || !age || !about) {
+        alert('Заполни все поля!');
         return;
-
     }
-
 
     alert(
-        'Заявка принята!\\n\\n' +
-
-        'Ник: ' +
-        nickname +
-
-        '\\nВозраст: ' +
-        age +
-
-        '\\n\\n' +
-
-        'Теперь ожидай связи ' +
-        'от состава FiXiK CLXN.'
+        'Заявка принята!\n\n' +
+        'Ник: ' + nickname +
+        '\nВозраст: ' + age +
+        '\n\nТеперь ожидай связи от состава FiXiK CLXN.'
     );
 
-
-    document
-        .getElementById(
-            'applicationForm'
-        )
-        .reset();
-
-
+    document.getElementById('applicationForm').reset();
     closeModal();
-
 }
 
-
-
-/* =========================
-   START
-========================= */
-
-document.addEventListener(
-    'DOMContentLoaded',
-    function(){
-
-        openTab('home');
-
-    }
-);
+document.addEventListener('DOMContentLoaded', function() {
+    openTab('home');
+});
 
 </script>
 
