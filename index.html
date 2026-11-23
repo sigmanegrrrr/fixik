@@ -4,87 +4,106 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>FiXiK CLXN — Majestic RP</title>
+<meta name="description" content="FiXiK CLXN — семья на Majestic RP (сервер Memphis). Команда, характер и общая история.">
+<meta name="theme-color" content="#08090d">
+<link rel="icon" href="logo.png" type="image/png">
 <link href="https://googleapis.com" rel="stylesheet">
 <style>
-:root{--bg:#08090d;--panel:#11131b;--purple:#8b5cf6;--light:#b49aff;--white:#f5f5f7;--gray:#9293a0;--border:rgba(255,255,255,.08)}
+:root{--bg:#08090d;--panel:#11131b;--purple:#8b5cf6;--purple-light:#b49aff;--white:#f5f5f7;--gray:#9293a0;--border:rgba(255,255,255,.08)}
 *{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
 body{background:var(--bg);color:var(--white);font-family:'Inter',sans-serif;overflow-x:hidden;min-height:100vh;display:flex;flex-direction:column}
 a{text-decoration:none;color:inherit}
 button{font-family:inherit;border:none;cursor:pointer;color:inherit}
-.navbar{position:fixed;top:0;width:100%;height:78px;display:flex;align-items:center;justify-content:space-between;padding:0 6%;z-index:1000;background:rgba(8,9,13,.88);backdrop-filter:blur(20px);border-bottom:1px solid var(--border)}
+.navbar{position:fixed;top:0;width:100%;height:78px;display:flex;align-items:center;justify-content:space-between;padding:0 8%;z-index:1000;background:rgba(8,9,13,.78);backdrop-filter:blur(20px);border-bottom:1px solid var(--border)}
 .logo{display:flex;align-items:center;gap:12px;cursor:pointer}
-.logo-icon{width:44px;height:44px;border-radius:50%;object-fit:contain;background:#11131b;border:1px solid rgba(139,92,246,.35)}
+.logo-icon{width:43px;height:43px;border-radius:50%;object-fit:contain;background:#11131b;box-shadow:0 0 25px rgba(139,92,246,.25)}
 .logo-text{font-family:'Orbitron',sans-serif;font-weight:700;letter-spacing:2px}
-.logo-text span{display:block;font-size:9px;color:var(--gray);letter-spacing:4px;margin-top:3px}
-.nav-links{display:flex;gap:22px;align-items:center}
-.tab-btn{background:transparent;color:#a7a7b3;font-size:13px;font-weight:500;padding:8px 4px;position:relative;transition:.3s}
-.tab-btn:hover,.tab-btn.active{color:var(--white)}
+.nav-links{display:flex;gap:28px;align-items:center}
+.tab-btn{background:transparent;color:#a7a7b3;font-size:13px;transition:.3s;padding:6px 0;position:relative}
+.tab-btn:hover,.tab-btn.active{color:#fff}
 .tab-btn.active::after{content:"";position:absolute;bottom:0;left:0;width:100%;height:2px;background:var(--purple)}
-.nav-button{padding:11px 18px;background:var(--purple);border-radius:7px;font-size:12px;font-weight:700;color:#fff}
-.nav-button:hover{background:#a078ff}
+.nav-button{padding:12px 20px;background:var(--purple);border-radius:7px;font-size:12px;font-weight:700;color:var(--white);transition:.3s}
+.nav-button:hover{background:#a078ff;box-shadow:0 0 25px rgba(139,92,246,.3)}
 main{flex:1}
 .tab-page{display:none}
 .tab-page.active{display:block}
-.hero{min-height:100vh;display:flex;align-items:center;padding:120px 10% 90px;background:linear-gradient(90deg,rgba(8,9,13,.96) 0%,rgba(8,9,13,.78) 55%,rgba(8,9,13,.45) 100%),linear-gradient(0deg,#08090d 0%,transparent 35%),url('logo.png') center/cover no-repeat}
-.hero-content{max-width:750px}
-.label{display:inline-flex;align-items:center;gap:10px;border:1px solid rgba(167,139,250,.3);padding:9px 14px;color:var(--light);font-size:10px;letter-spacing:3px;border-radius:4px;margin-bottom:25px;background:rgba(139,92,246,.08)}
-.label-dot{width:7px;height:7px;background:#a78bfa;border-radius:50%}
-.hero h1{font-family:'Orbitron',sans-serif;font-size:clamp(46px,8vw,96px);line-height:1.08;font-weight:800;letter-spacing:-2px}
-.hero h1 span{color:var(--light)}
+.hero{min-height:100vh;position:relative;display:flex;align-items:center;padding:120px 10% 90px;background:linear-gradient(90deg,rgba(8,9,13,.98) 0%,rgba(8,9,13,.75) 50%,rgba(8,9,13,.35) 100%),linear-gradient(0deg,#08090d 0%,transparent 35%),url('logo.png');background-size:cover;background-position:center}
+.hero::after{content:"";position:absolute;inset:0;background:radial-gradient(circle at 70% 50%,rgba(124,58,237,.16),transparent 45%);pointer-events:none}
+.hero-content{position:relative;z-index:2;max-width:750px}
+.label{display:inline-flex;align-items:center;gap:10px;border:1px solid rgba(167,139,250,.3);padding:9px 14px;color:var(--purple-light);font-size:10px;letter-spacing:3px;border-radius:4px;margin-bottom:25px}
+.label-dot{width:7px;height:7px;background:#a78bfa;border-radius:50%;box-shadow:0 0 10px #a78bfa}
+.hero h1{font-family:'Orbitron',sans-serif;font-size:clamp(48px,8vw,100px);line-height:1.08;font-weight:800;letter-spacing:-3px}
+.hero h1 span{color:var(--purple-light);text-shadow:0 0 45px rgba(139,92,246,.3)}
 .hero-description{color:#a7a7b3;font-size:15px;line-height:1.8;max-width:510px;margin-top:24px}
 .hero-buttons{display:flex;gap:14px;margin-top:35px;flex-wrap:wrap}
-.btn-p,.btn-s{padding:15px 24px;border-radius:6px;font-size:12px;font-weight:700;letter-spacing:1px;transition:.3s}
-.btn-p{background:var(--purple)}
-.btn-p:hover{transform:translateY(-2px);background:#a078ff}
-.btn-s{border:1px solid rgba(255,255,255,.15);background:rgba(255,255,255,.04)}
-.btn-s:hover{background:rgba(255,255,255,.1)}
-.stats{display:grid;grid-template-columns:repeat(3,auto);justify-content:start;column-gap:50px;margin-top:65px;border-top:1px solid var(--border);padding-top:25px}
+.button-primary,.button-secondary{padding:16px 25px;border-radius:6px;font-size:12px;font-weight:700;letter-spacing:1px;display:inline-flex;align-items:center;justify-content:center;transition:.3s}
+.button-primary{background:var(--purple)}
+.button-primary:hover{transform:translateY(-3px);box-shadow:0 10px 30px rgba(139,92,246,.3)}
+.button-secondary{border:1px solid rgba(255,255,255,.15);background:rgba(255,255,255,.03)}
+.button-secondary:hover{background:rgba(255,255,255,.08)}
+.stats{display:grid;grid-template-columns:repeat(3,auto);justify-content:start;column-gap:50px;max-width:650px;margin-top:65px;border-top:1px solid var(--border);padding-top:25px}
 .stat h2{font-family:'Orbitron',sans-serif;font-size:28px}
 .stat p{color:var(--gray);font-size:10px;letter-spacing:2px;margin-top:8px}
-.sec{padding:135px 10% 90px;min-height:calc(100vh - 85px)}
-.sec-head{margin-bottom:45px}
-.sec-tag{font-size:10px;letter-spacing:4px;color:var(--light);margin-bottom:12px}
-.sec-head h2{font-family:'Orbitron',sans-serif;font-size:clamp(28px,4vw,46px)}
-.sec-head p{color:var(--gray);margin-top:12px;line-height:1.7;max-width:600px}
-.grid-2{display:grid;grid-template-columns:1fr 1fr;gap:22px}
-.grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
-.grid-4{display:grid;grid-template-columns:repeat(4,1fr);gap:15px}
-.card{padding:30px;background:var(--panel);border:1px solid var(--border);border-radius:12px;transition:.3s}
-.card:hover{border-color:var(--purple);transform:translateY(-4px)}
-.card h3{font-family:'Orbitron',sans-serif;font-size:16px;margin-bottom:10px}
-.card p{color:var(--gray);line-height:1.7;font-size:13px}
-.num{color:var(--light);font-family:'Orbitron',sans-serif;font-size:11px;margin-bottom:15px}
-.timeline{display:flex;flex-direction:column;gap:18px;border-left:2px solid rgba(139,92,246,.4);padding-left:28px;margin-left:10px}
-.t-item{background:var(--panel);border:1px solid var(--border);border-radius:12px;padding:25px 30px;position:relative}
-.t-item::before{content:"";position:absolute;left:-35px;top:30px;width:12px;height:12px;border-radius:50%;background:var(--purple)}
-.t-badge{display:inline-block;font-family:'Orbitron',sans-serif;font-size:10px;color:var(--light);background:rgba(139,92,246,.14);padding:4px 10px;border-radius:4px;margin-bottom:10px}
-.modal{position:fixed;inset:0;background:rgba(8,9,13,.88);display:none;align-items:center;justify-content:center;z-index:2000;padding:20px}
-.modal.active{display:flex}
-.m-box{background:var(--panel);border:1px solid rgba(139,92,246,.35);border-radius:14px;padding:32px;max-width:420px;width:100%;position:relative}
-.m-close{position:absolute;top:16px;right:18px;background:transparent;color:var(--gray);font-size:20px}
-.m-box h3{font-family:'Orbitron',sans-serif;font-size:19px;margin-bottom:8px}
-.m-box p{color:var(--gray);font-size:13px;margin-bottom:18px}
-.fg{margin-bottom:14px}
-.fg input,.fg textarea{width:100%;padding:12px;background:var(--bg);border:1px solid var(--border);border-radius:6px;color:var(--white);font-size:13px;outline:none}
-footer{padding:28px 8%;border-top:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;gap:15px;font-size:11px;color:var(--gray)}
-@media(max-width:950px){.navbar{height:auto;flex-wrap:wrap;padding:12px 5%;gap:10px}.nav-links{width:100%;overflow-x:auto;padding-bottom:4px}.tab-btn{white-space:nowrap}.hero,.sec{padding-top:145px;padding-left:6%;padding-right:6%}.grid-2,.grid-3{grid-template-columns:1fr}.grid-4{grid-template-columns:1fr 1fr}}
-@media(max-width:550px){.grid-4{grid-template-columns:1fr}footer{flex-direction:column;text-align:center}}
+section.content-section{padding:135px 10% 90px;min-height:calc(100vh - 90px)}
+.section-heading{margin-bottom:55px}
+.section-tag{font-size:10px;letter-spacing:4px;color:var(--purple-light);margin-bottom:15px}
+.section-heading h2{font-family:'Orbitron',sans-serif;font-size:clamp(30px,4vw,48px)}
+.section-heading p{color:var(--gray);margin-top:15px;line-height:1.8;max-width:600px}
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:25px}
+.about-card{padding:35px;background:var(--panel);border:1px solid var(--border);border-radius:12px;transition:.3s}
+.about-card:hover{border-color:rgba(167,139,250,.35);transform:translateY(-5px)}
+.about-card .icon{font-size:25px;margin-bottom:20px}
+.about-card h3{font-family:'Orbitron',sans-serif;font-size:17px;margin-bottom:13px}
+.about-card p{color:var(--gray);line-height:1.8;font-size:13px}
+.timeline{display:flex;flex-direction:column;gap:20px;border-left:2px solid rgba(139,92,246,.35);padding-left:30px;margin-left:10px}
+.timeline-item{background:var(--panel);border:1px solid var(--border);border-radius:12px;padding:28px 32px;position:relative;transition:.3s}
+.timeline-item:hover{border-color:var(--purple)}
+.timeline-item::before{content:"";position:absolute;left:-37px;top:32px;width:12px;height:12px;border-radius:50%;background:var(--purple);box-shadow:0 0 12px var(--purple)}
+.timeline-badge{display:inline-block;font-family:'Orbitron',sans-serif;font-size:11px;color:var(--purple-light);background:rgba(139,92,246,.12);padding:4px 10px;border-radius:4px;margin-bottom:12px}
+.timeline-item h3{font-family:'Orbitron',sans-serif;font-size:20px;margin-bottom:10px}
+.timeline-item p{color:var(--gray);font-size:14px;line-height:1.7}
+.ranks{display:grid;grid-template-columns:repeat(4,1fr);gap:15px}
+.rank{padding:28px 22px;border:1px solid var(--border);background:var(--panel);border-radius:10px;transition:.3s}
+.rank:hover{border-color:var(--purple);transform:translateY(-5px)}
+.rank-number{color:var(--purple-light);font-family:'Orbitron',sans-serif;font-size:11px;margin-bottom:20px}
+.rank h3{font-family:'Orbitron',sans-serif;font-size:15px;margin-bottom:10px}
+.rank p{font-size:12px;color:var(--gray);line-height:1.7}
+.leaders-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.leader-card{background:var(--panel);border:1px solid var(--border);border-radius:12px;padding:28px}
+.leader-role{color:var(--purple-light);font-family:'Orbitron',sans-serif;font-size:10px;letter-spacing:2px;margin-bottom:10px}
+.leader-card h3{font-family:'Orbitron',sans-serif;font-size:18px;margin-bottom:6px}
+.leader-card span{color:var(--gray);font-size:12px}
+.modal-overlay{position:fixed;inset:0;background:rgba(8,9,13,.85);backdrop-filter:blur(10px);display:none;align-items:center;justify-content:center;z-index:2000;padding:20px}
+.modal-overlay.active{display:flex}
+.modal-box{background:var(--panel);border:1px solid rgba(139,92,246,.3);border-radius:14px;padding:35px;max-width:440px;width:100%;position:relative}
+.modal-close{position:absolute;top:18px;right:20px;background:transparent;color:var(--gray);font-size:20px}
+.modal-box h3{font-family:'Orbitron',sans-serif;font-size:20px;margin-bottom:8px}
+.modal-box p{color:var(--gray);font-size:13px;margin-bottom:20px}
+.form-group{margin-bottom:15px}
+.form-group input,.form-group textarea{width:100%;padding:12px 14px;background:var(--bg);border:1px solid var(--border);border-radius:6px;color:var(--white);font-size:13px;outline:none}
+.form-group input:focus,.form-group textarea:focus{border-color:var(--purple)}
+footer{padding:35px 10%;border-top:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;gap:20px}
+footer p{color:var(--gray);font-size:11px}
+.footer-logo{font-family:'Orbitron',sans-serif;font-size:13px;letter-spacing:2px}
+@media(max-width:900px){.navbar{height:auto;flex-wrap:wrap;padding:12px 5%;gap:12px}.nav-links{width:100%;overflow-x:auto;padding-bottom:4px;gap:15px}.tab-btn{white-space:nowrap}.hero{padding-top:150px;padding-left:7%;padding-right:7%}section.content-section{padding:145px 7% 80px}.about-grid,.leaders-grid{grid-template-columns:1fr}.ranks{grid-template-columns:1fr 1fr}.stats{column-gap:25px}}
+@media(max-width:550px){.ranks{grid-template-columns:1fr}.stats{grid-template-columns:1fr;row-gap:20px}footer{flex-direction:column;text-align:center}}
 </style>
 </head>
 <body>
 
 <nav class="navbar">
     <div class="logo" onclick="openTab('home')">
-        <img src="logo.png" alt="FX" class="logo-icon">
-        <div class="logo-text">FiXiK CLXN<span>MEMPHIS SERVER</span></div>
+        <img src="logo.png" alt="FiXiK WEB" class="logo-icon">
+        <div class="logo-text">FiXiK WEB</div>
     </div>
     <div class="nav-links">
         <button class="tab-btn active" data-tab="home" onclick="openTab('home')">Главная</button>
         <button class="tab-btn" data-tab="about" onclick="openTab('about')">О семье</button>
         <button class="tab-btn" data-tab="history" onclick="openTab('history')">Семьи и путь</button>
         <button class="tab-btn" data-tab="ranks" onclick="openTab('ranks')">Иерархия</button>
-        <button class="tab-btn" data-tab="media" onclick="openTab('media')">Состав и Медиа</button>
-        <button class="nav-button" onclick="openModal()">ПОДАТЬ ЗАЯВКУ</button>
+        <button class="tab-btn" data-tab="staff" onclick="openTab('staff')">Состав</button>
+        <button class="nav-button" onclick="openModal()">ВСТУПИТЬ</button>
     </div>
 </nav>
 
@@ -94,42 +113,9 @@ footer{padding:28px 8%;border-top:1px solid var(--border);display:flex;align-ite
             <div class="hero-content">
                 <div class="label"><span class="label-dot"></span>MAJESTIC RP • MEMPHIS</div>
                 <h1>FiXiK <span>CLXN</span></h1>
-                <p class="hero-description">Семья на Majestic RP (сервер Memphis). Команда, характер и общая история, проверенная временем и общими делами в штате.</p>
+                <p class="hero-description">FiXiK CLXN — семья на Majestic RP (сервер Memphis). Команда, характер и общая история.</p>
                 <div class="hero-buttons">
-                    <button class="btn-p" onclick="openModal()">ВСТУПИТЬ В СЕМЬЮ</button>
-                    <button class="btn-s" onclick="openTab('history')">НАША ИСТОРИЯ СЕМЕЙ</button>
-                    <button class="btn-s" id="promoBtn" onclick="copyPromo()">ПРОМО: FIXIK</button>
+                    <button class="button-primary" onclick="openModal()">ПОДАТЬ ЗАЯВКУ</button>
+                    <button class="button-secondary" onclick="openTab('history')">НАША ИСТОРИЯ</button>
                 </div>
                 <div class="stats">
-                    <div class="stat"><h2>50+</h2><p>УЧАСТНИКОВ</p></div>
-                    <div class="stat"><h2>24/7</h2><p>АКТИВ В ШТАТЕ</p></div>
-                    <div class="stat"><h2>MEMPHIS</h2><p>СЕРВЕР</p></div>
-                </div>
-            </div>
-        </header>
-    </div>
-
-    <div id="tab-about" class="tab-page">
-        <section class="sec">
-            <div class="sec-head">
-                <div class="sec-tag">ФИЛОСОФИЯ</div>
-                <h2>Кто мы такие</h2>
-                <p>FiXiK CLXN — это слаженный состав на сервере Memphis, где каждый отвечает за общий результат и прикрывает своих.</p>
-            </div>
-            <div class="grid-2">
-                <div class="card"><h3>⚡ Братство и поддержка</h3><p>Новичок ты или опытный игрок — мы всегда поможем освоиться на сервере, подскажем по механикам и поддержим в любой ситуации.</p></div>
-                <div class="card"><h3>🎯 Контент и движ</h3><p>Регулярные семейные контракты, ограбления, тулево, капты и совместные ивенты без лишнего пафоса.</p></div>
-                <div class="card"><h3>🏛️ Автопарк и дом</h3><p>Собственный дом, заряженный автопарк для любых задач и стабильный фарм для активных участников.</p></div>
-                <div class="card"><h3>🛡️ Дисциплина</h3><p>Уважение внутри коллектива и адекватность. Мы ценим людей с головой на плечах и чувством юмора.</p></div>
-            </div>
-        </section>
-    </div>
-
-    <div id="tab-history" class="tab-page">
-        <section class="sec">
-            <div class="sec-head">
-                <div class="sec-tag">ХРОНОЛОГИЯ • ПУТЬ КОМАНДЫ</div>
-                <h2>Семьи, в которых мы были</h2>
-                <p>Прежде чем создать собственный тег FiXiK CLXN, наш костяк прошёл через разные составы и набрался опыта на Majestic RP.</p>
-            </div>
-            <div class="timeline">
