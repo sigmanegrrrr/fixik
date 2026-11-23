@@ -11,7 +11,6 @@
 
 <link rel="icon" href="logo.png" type="image/png">
 
-<!-- Шрифты -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
@@ -95,15 +94,10 @@ button{
 .logo-icon{
     width:43px;
     height:43px;
-
     border-radius:50%;
-
     object-fit:contain;
-
     background:#11131b;
-
-    box-shadow:
-        0 0 25px rgba(139,92,246,.25);
+    box-shadow:0 0 25px rgba(139,92,246,.25);
 }
 
 .logo-text{
@@ -120,15 +114,10 @@ button{
 
 .tab-btn{
     position:relative;
-
     background:transparent;
-
     color:#a7a7b3;
-
     font-size:13px;
-
     padding:8px 0;
-
     transition:.3s;
 }
 
@@ -139,36 +128,26 @@ button{
 
 .tab-btn.active::after{
     content:"";
-
     position:absolute;
-
     bottom:0;
     left:0;
-
     width:100%;
     height:2px;
-
     background:var(--purple);
 }
 
 .nav-button{
     padding:12px 20px;
-
     background:var(--purple);
-
     border-radius:7px;
-
     font-size:12px;
     font-weight:700;
-
     transition:.3s;
 }
 
 .nav-button:hover{
     background:#a078ff;
-
-    box-shadow:
-        0 0 25px rgba(139,92,246,.3);
+    box-shadow:0 0 25px rgba(139,92,246,.3);
 }
 
 
@@ -195,47 +174,55 @@ main{
 
 .hero{
     min-height:100vh;
-
     position:relative;
 
     display:flex;
     align-items:center;
 
-    padding:
-        120px
-        10%
-        90px;
+    padding:120px 10% 90px;
+
+    /*
+       ЛОГОТИП ТЕПЕРЬ ДАЛЬШЕ
+       background-size: contain / 75%
+    */
 
     background:
         linear-gradient(
             90deg,
             rgba(8,9,13,.98) 0%,
-            rgba(8,9,13,.75) 50%,
-            rgba(8,9,13,.35) 100%
+            rgba(8,9,13,.82) 45%,
+            rgba(8,9,13,.55) 100%
         ),
         linear-gradient(
             0deg,
             #08090d 0%,
-            transparent 35%
+            transparent 40%
         ),
         url('logo.png');
 
-    background-size:cover;
-    background-position:center;
+    background-size:
+        cover,
+        cover,
+        72%;
+
+    background-repeat:no-repeat;
+
+    background-position:
+        center,
+        center,
+        right center;
 }
 
 .hero::after{
     content:"";
-
     position:absolute;
-
     inset:0;
 
     background:
         radial-gradient(
-            circle at 70% 50%,
-            rgba(124,58,237,.16),
-            transparent 45%
+            circle at 75% 50%,
+            rgba(124,58,237,.14),
+            transparent 38%
         );
 
     pointer-events:none;
@@ -244,27 +231,21 @@ main{
 .hero-content{
     position:relative;
     z-index:2;
-
     max-width:750px;
 }
 
 .label{
     display:inline-flex;
-
     align-items:center;
-
     gap:10px;
 
-    border:
-        1px solid
-        rgba(167,139,250,.3);
+    border:1px solid rgba(167,139,250,.3);
 
     padding:9px 14px;
 
     color:var(--purple-light);
 
     font-size:10px;
-
     letter-spacing:3px;
 
     border-radius:4px;
@@ -280,19 +261,13 @@ main{
 
     border-radius:50%;
 
-    box-shadow:
-        0 0 10px #a78bfa;
+    box-shadow:0 0 10px #a78bfa;
 }
 
 .hero h1{
     font-family:'Orbitron',sans-serif;
 
-    font-size:
-        clamp(
-            48px,
-            8vw,
-            100px
-        );
+    font-size:clamp(48px,8vw,100px);
 
     line-height:1.08;
 
@@ -363,17 +338,13 @@ main{
 }
 
 .button-secondary{
-    border:
-        1px solid
-        rgba(255,255,255,.15);
+    border:1px solid rgba(255,255,255,.15);
 
-    background:
-        rgba(255,255,255,.03);
+    background:rgba(255,255,255,.03);
 }
 
 .button-secondary:hover{
-    background:
-        rgba(255,255,255,.08);
+    background:rgba(255,255,255,.08);
 }
 
 
@@ -395,9 +366,7 @@ main{
 
     margin-top:65px;
 
-    border-top:
-        1px solid
-        var(--border);
+    border-top:1px solid var(--border);
 
     padding-top:25px;
 }
@@ -424,10 +393,7 @@ main{
 ========================= */
 
 section.content-section{
-    padding:
-        135px
-        10%
-        90px;
+    padding:135px 10% 90px;
 
     min-height:100vh;
 }
@@ -449,12 +415,7 @@ section.content-section{
 .section-heading h2{
     font-family:'Orbitron',sans-serif;
 
-    font-size:
-        clamp(
-            30px,
-            4vw,
-            48px
-        );
+    font-size:clamp(30px,4vw,48px);
 }
 
 .section-heading p{
@@ -486,9 +447,7 @@ section.content-section{
 
     background:var(--panel);
 
-    border:
-        1px solid
-        var(--border);
+    border:1px solid var(--border);
 
     border-radius:12px;
 
@@ -496,8 +455,7 @@ section.content-section{
 }
 
 .about-card:hover{
-    border-color:
-        rgba(167,139,250,.35);
+    border-color:rgba(167,139,250,.35);
 
     transform:translateY(-5px);
 }
@@ -536,9 +494,7 @@ section.content-section{
 
     gap:20px;
 
-    border-left:
-        2px solid
-        rgba(139,92,246,.35);
+    border-left:2px solid rgba(139,92,246,.35);
 
     padding-left:30px;
 
@@ -548,9 +504,7 @@ section.content-section{
 .timeline-item{
     background:var(--panel);
 
-    border:
-        1px solid
-        var(--border);
+    border:1px solid var(--border);
 
     border-radius:12px;
 
@@ -581,8 +535,7 @@ section.content-section{
     background:var(--purple);
 
     box-shadow:
-        0 0 12px
-        var(--purple);
+        0 0 12px var(--purple);
 }
 
 .timeline-badge{
@@ -594,8 +547,7 @@ section.content-section{
 
     color:var(--purple-light);
 
-    background:
-        rgba(139,92,246,.12);
+    background:rgba(139,92,246,.12);
 
     padding:4px 10px;
 
@@ -622,122 +574,225 @@ section.content-section{
 
 
 /* =========================
-   RANKS
-========================= */
-
-.ranks{
-    display:grid;
-
-    grid-template-columns:
-        repeat(4,1fr);
-
-    gap:15px;
-}
-
-.rank{
-    padding:28px 22px;
-
-    border:
-        1px solid
-        var(--border);
-
-    background:var(--panel);
-
-    border-radius:10px;
-
-    transition:.3s;
-}
-
-.rank:hover{
-    border-color:var(--purple);
-
-    transform:translateY(-5px);
-}
-
-.rank-number{
-    color:var(--purple-light);
-
-    font-family:'Orbitron',sans-serif;
-
-    font-size:11px;
-
-    margin-bottom:20px;
-}
-
-.rank h3{
-    font-family:'Orbitron',sans-serif;
-
-    font-size:15px;
-
-    margin-bottom:10px;
-}
-
-.rank p{
-    font-size:12px;
-
-    color:var(--gray);
-
-    line-height:1.7;
-}
-
-
-/* =========================
    STAFF
 ========================= */
 
-.leaders-grid{
+.staff-grid{
     display:grid;
 
     grid-template-columns:
         repeat(3,1fr);
 
+    gap:25px;
+
+    align-items:start;
+}
+
+
+/* Большие карточки */
+
+.staff-card{
+    background:var(--panel);
+
+    border:1px solid var(--border);
+
+    border-radius:16px;
+
+    overflow:hidden;
+
+    transition:
+        transform .3s,
+        border-color .3s,
+        box-shadow .3s;
+}
+
+.staff-card:hover{
+    border-color:rgba(139,92,246,.5);
+
+    box-shadow:
+        0 15px 50px
+        rgba(0,0,0,.3);
+}
+
+
+/* Кнопка карточки */
+
+.staff-card-header{
+    width:100%;
+
+    padding:35px 30px;
+
+    background:transparent;
+
+    text-align:left;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:space-between;
+
     gap:20px;
 }
 
-.leader-card{
-    background:var(--panel);
+.staff-card-header:hover{
+    background:rgba(255,255,255,.025);
+}
 
-    border:
-        1px solid
-        var(--border);
+.staff-info{
+    display:flex;
+
+    align-items:center;
+
+    gap:18px;
+}
+
+
+/* Большой номер */
+
+.staff-number{
+    width:58px;
+    height:58px;
+
+    flex-shrink:0;
+
+    display:flex;
+
+    align-items:center;
+    justify-content:center;
 
     border-radius:12px;
 
-    padding:28px;
+    background:
+        rgba(139,92,246,.12);
 
-    transition:.3s;
-}
+    border:
+        1px solid
+        rgba(139,92,246,.25);
 
-.leader-card:hover{
-    transform:translateY(-5px);
-
-    border-color:var(--purple);
-}
-
-.leader-role{
     color:var(--purple-light);
 
     font-family:'Orbitron',sans-serif;
 
-    font-size:10px;
+    font-size:14px;
 
-    letter-spacing:2px;
-
-    margin-bottom:10px;
+    font-weight:700;
 }
 
-.leader-card h3{
+
+/* Название */
+
+.staff-card h3{
     font-family:'Orbitron',sans-serif;
 
-    font-size:18px;
+    font-size:19px;
 
     margin-bottom:6px;
 }
 
-.leader-card span{
+.staff-role-description{
     color:var(--gray);
 
     font-size:12px;
+}
+
+
+/* Стрелка */
+
+.staff-arrow{
+    color:var(--purple-light);
+
+    font-size:22px;
+
+    transition:
+        transform .3s;
+}
+
+
+/* Открытая карточка */
+
+.staff-card.open
+.staff-arrow{
+    transform:rotate(180deg);
+}
+
+
+/* Список ников */
+
+.staff-members{
+    max-height:0;
+
+    overflow:hidden;
+
+    opacity:0;
+
+    transition:
+        max-height .45s ease,
+        opacity .3s ease,
+        padding .3s ease;
+}
+
+.staff-card.open .staff-members{
+    max-height:500px;
+
+    opacity:1;
+
+    padding:
+        0 30px
+        25px;
+}
+
+
+/* Ник */
+
+.member{
+    display:flex;
+
+    align-items:center;
+
+    gap:12px;
+
+    padding:13px 15px;
+
+    margin-top:8px;
+
+    background:
+        rgba(255,255,255,.025);
+
+    border:
+        1px solid
+        rgba(255,255,255,.06);
+
+    border-radius:8px;
+
+    color:#d7d7df;
+
+    font-size:13px;
+
+    transition:.2s;
+}
+
+.member:hover{
+    border-color:
+        rgba(139,92,246,.3);
+
+    background:
+        rgba(139,92,246,.07);
+
+    transform:translateX(4px);
+}
+
+.member-dot{
+    width:7px;
+    height:7px;
+
+    border-radius:50%;
+
+    background:var(--purple);
+
+    box-shadow:
+        0 0 8px
+        var(--purple);
 }
 
 
@@ -840,9 +895,7 @@ section.content-section{
 
     background:var(--bg);
 
-    border:
-        1px solid
-        var(--border);
+    border:1px solid var(--border);
 
     border-radius:6px;
 
@@ -874,9 +927,7 @@ section.content-section{
 footer{
     padding:35px 10%;
 
-    border-top:
-        1px solid
-        var(--border);
+    border-top:1px solid var(--border);
 
     display:flex;
 
@@ -943,6 +994,11 @@ footer p{
 
         padding-left:7%;
         padding-right:7%;
+
+        background-size:
+            cover,
+            cover,
+            85%;
     }
 
     section.content-section{
@@ -952,14 +1008,12 @@ footer p{
             80px;
     }
 
-    .about-grid,
-    .leaders-grid{
+    .about-grid{
         grid-template-columns:1fr;
     }
 
-    .ranks{
-        grid-template-columns:
-            1fr 1fr;
+    .staff-grid{
+        grid-template-columns:1fr;
     }
 
     .stats{
@@ -993,10 +1047,6 @@ footer p{
         width:100%;
     }
 
-    .ranks{
-        grid-template-columns:1fr;
-    }
-
     .stats{
         grid-template-columns:1fr;
 
@@ -1020,6 +1070,25 @@ footer p{
     .modal-box{
         padding:28px 22px;
     }
+
+    .staff-card-header{
+        padding:28px 22px;
+    }
+
+    .staff-card.open .staff-members{
+        padding:
+            0 22px
+            20px;
+    }
+
+    .staff-number{
+        width:50px;
+        height:50px;
+    }
+
+    .staff-card h3{
+        font-size:16px;
+    }
 }
 
 </style>
@@ -1035,7 +1104,10 @@ footer p{
 
 <nav class="navbar">
 
-    <div class="logo" onclick="openTab('home')">
+    <div
+        class="logo"
+        onclick="openTab('home')"
+    >
 
         <img
             src="logo.png"
@@ -1074,14 +1146,6 @@ footer p{
             onclick="openTab('history')"
         >
             Наш путь
-        </button>
-
-        <button
-            class="tab-btn"
-            data-tab="ranks"
-            onclick="openTab('ranks')"
-        >
-            Иерархия
         </button>
 
         <button
@@ -1166,11 +1230,15 @@ footer p{
             </div>
 
 
+            <!-- ТУТ ТЕПЕРЬ FiXiK CLXN ВМЕСТО 01 -->
+
             <div class="stats">
 
                 <div class="stat">
 
-                    <h2>01</h2>
+                    <h2>
+                        FiXiK CLXN
+                    </h2>
 
                     <p>
                         CLAN
@@ -1181,7 +1249,9 @@ footer p{
 
                 <div class="stat">
 
-                    <h2>MEMPHIS</h2>
+                    <h2>
+                        MEMPHIS
+                    </h2>
 
                     <p>
                         SERVER
@@ -1192,7 +1262,9 @@ footer p{
 
                 <div class="stat">
 
-                    <h2>∞</h2>
+                    <h2>
+                        ∞
+                    </h2>
 
                     <p>
                         POTENTIAL
@@ -1236,8 +1308,8 @@ footer p{
                 на сервере Memphis.
 
                 Мы собираем людей, которые хотят
-                играть вместе, развиваться и создавать
-                свою историю.
+                играть вместе, развиваться
+                и создавать свою историю.
             </p>
 
         </div>
@@ -1315,7 +1387,8 @@ footer p{
 
                 <p>
                     Главное — нормальная атмосфера,
-                    актив и удовольствие от игры.
+                    актив и удовольствие
+                    от игры.
                 </p>
 
             </div>
@@ -1447,120 +1520,6 @@ footer p{
 
 
 <!-- =========================
-     RANKS
-========================= -->
-
-<div
-    id="tab-ranks"
-    class="tab-page"
->
-
-    <section class="content-section">
-
-        <div class="section-heading">
-
-            <div class="section-tag">
-                CLAN STRUCTURE
-            </div>
-
-            <h2>
-                Иерархия
-            </h2>
-
-            <p>
-                Структура FiXiK CLXN.
-            </p>
-
-        </div>
-
-
-        <div class="ranks">
-
-
-            <div class="rank">
-
-                <div class="rank-number">
-                    01
-                </div>
-
-                <h3>
-                    Владелец
-                </h3>
-
-                <p>
-                    Руководит кланом
-                    и принимает основные
-                    решения.
-                </p>
-
-            </div>
-
-
-            <div class="rank">
-
-                <div class="rank-number">
-                    02
-                </div>
-
-                <h3>
-                    Заместитель
-                </h3>
-
-                <p>
-                    Помогает руководству
-                    и следит за работой
-                    состава.
-                </p>
-
-            </div>
-
-
-            <div class="rank">
-
-                <div class="rank-number">
-                    03
-                </div>
-
-                <h3>
-                    Основной состав
-                </h3>
-
-                <p>
-                    Активные участники
-                    FiXiK CLXN.
-                </p>
-
-            </div>
-
-
-            <div class="rank">
-
-                <div class="rank-number">
-                    04
-                </div>
-
-                <h3>
-                    Новичок
-                </h3>
-
-                <p>
-                    Новый участник,
-                    который проходит
-                    адаптацию в клане.
-                </p>
-
-            </div>
-
-
-        </div>
-
-    </section>
-
-</div>
-
-
-
-<!-- =========================
      STAFF
 ========================= -->
 
@@ -1574,7 +1533,7 @@ footer p{
         <div class="section-heading">
 
             <div class="section-tag">
-                CLAN STAFF
+                CLAN MEMBERS
             </div>
 
             <h2>
@@ -1582,63 +1541,208 @@ footer p{
             </h2>
 
             <p>
-                Руководство и основные
-                участники FiXiK CLXN.
+                Нажми на должность,
+                чтобы увидеть участников.
             </p>
 
         </div>
 
 
-        <div class="leaders-grid">
+        <div class="staff-grid">
 
 
-            <div class="leader-card">
+            <!-- OWNER -->
 
-                <div class="leader-role">
-                    OWNER
+            <div class="staff-card">
+
+                <button
+                    class="staff-card-header"
+                    onclick="toggleStaff(this)"
+                >
+
+                    <div class="staff-info">
+
+                        <div class="staff-number">
+                            01
+                        </div>
+
+                        <div>
+
+                            <h3>
+                                OWNER
+                            </h3>
+
+                            <div class="staff-role-description">
+                                Руководство клана
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="staff-arrow">
+                        ▼
+                    </div>
+
+                </button>
+
+
+                <div class="staff-members">
+
+                    <div class="member">
+
+                        <span class="member-dot"></span>
+
+                        Valeriy Fixikz
+
+                    </div>
+
+
+                    <div class="member">
+
+                        <span class="member-dot"></span>
+
+                        Borik Fixikz
+
+                    </div>
+
                 </div>
-
-                <h3>
-                    FiXiK
-                </h3>
-
-                <span>
-                    Владелец клана
-                </span>
 
             </div>
 
 
-            <div class="leader-card">
 
-                <div class="leader-role">
-                    DEPUTY
+            <!-- DEPUTY -->
+
+            <div class="staff-card">
+
+                <button
+                    class="staff-card-header"
+                    onclick="toggleStaff(this)"
+                >
+
+                    <div class="staff-info">
+
+                        <div class="staff-number">
+                            02
+                        </div>
+
+                        <div>
+
+                            <h3>
+                                DEPUTY
+                            </h3>
+
+                            <div class="staff-role-description">
+                                Заместители
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="staff-arrow">
+                        ▼
+                    </div>
+
+                </button>
+
+
+                <div class="staff-members">
+
+                    <div class="member">
+
+                        <span class="member-dot"></span>
+
+                        Пока что нету
+
+                    </div>
+
                 </div>
-
-                <h3>
-                    В разработке
-                </h3>
-
-                <span>
-                    Заместитель
-                </span>
 
             </div>
 
 
-            <div class="leader-card">
 
-                <div class="leader-role">
-                    MAIN
+            <!-- MAIN -->
+
+            <div class="staff-card">
+
+                <button
+                    class="staff-card-header"
+                    onclick="toggleStaff(this)"
+                >
+
+                    <div class="staff-info">
+
+                        <div class="staff-number">
+                            03
+                        </div>
+
+                        <div>
+
+                            <h3>
+                                MAIN
+                            </h3>
+
+                            <div class="staff-role-description">
+                                Основной состав
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="staff-arrow">
+                        ▼
+                    </div>
+
+                </button>
+
+
+                <div class="staff-members">
+
+
+                    <div class="member">
+                        <span class="member-dot"></span>
+                        Alexandr Fixik
+                    </div>
+
+
+                    <div class="member">
+                        <span class="member-dot"></span>
+                        Vitos Fixik
+                    </div>
+
+
+                    <div class="member">
+                        <span class="member-dot"></span>
+                        Vasek Fixik
+                    </div>
+
+
+                    <div class="member">
+                        <span class="member-dot"></span>
+                        Misha Fixik
+                    </div>
+
+
+                    <div class="member">
+                        <span class="member-dot"></span>
+                        Denchik Fixik
+                    </div>
+
+
+                    <div class="member">
+                        <span class="member-dot"></span>
+                        Yasha Fixik
+                    </div>
+
+
                 </div>
-
-                <h3>
-                    FiXiK CLXN
-                </h3>
-
-                <span>
-                    Основной состав
-                </span>
 
             </div>
 
@@ -1661,7 +1765,7 @@ footer p{
 <footer>
 
     <div class="footer-logo">
-        FiXiK WEB
+        FiXiK CLXN
     </div>
 
     <p>
@@ -1673,7 +1777,7 @@ footer p{
 
 
 <!-- =========================
-     JOIN MODAL
+     MODAL
 ========================= -->
 
 <div
@@ -1686,7 +1790,6 @@ footer p{
         <button
             class="modal-close"
             onclick="closeModal()"
-            aria-label="Закрыть"
         >
             ×
         </button>
@@ -1762,20 +1865,15 @@ footer p{
 
 
 
-<!-- =========================
-     JAVASCRIPT
-========================= -->
-
 <script>
 
 
 /* =========================
-   ПЕРЕКЛЮЧЕНИЕ ВКЛАДОК
+   ВКЛАДКИ
 ========================= */
 
 function openTab(tabName){
 
-    // Скрываем все страницы
     document
         .querySelectorAll('.tab-page')
         .forEach(function(page){
@@ -1785,14 +1883,12 @@ function openTab(tabName){
         });
 
 
-    // Ищем нужную страницу
     const selectedPage =
         document.getElementById(
             'tab-' + tabName
         );
 
 
-    // Показываем её
     if(selectedPage){
 
         selectedPage.classList.add('active');
@@ -1800,20 +1896,12 @@ function openTab(tabName){
     }
 
 
-    // Убираем active со всех кнопок
     document
         .querySelectorAll('.tab-btn')
         .forEach(function(button){
 
             button.classList.remove('active');
 
-        });
-
-
-    // Ставим active нужной кнопке
-    document
-        .querySelectorAll('.tab-btn')
-        .forEach(function(button){
 
             if(
                 button.dataset.tab === tabName
@@ -1826,7 +1914,6 @@ function openTab(tabName){
         });
 
 
-    // Прокручиваем страницу вверх
     window.scrollTo({
         top:0,
         behavior:'smooth'
@@ -1837,7 +1924,55 @@ function openTab(tabName){
 
 
 /* =========================
-   ОТКРЫТЬ МОДАЛЬНОЕ ОКНО
+   СОСТАВ
+========================= */
+
+function toggleStaff(button){
+
+    const card =
+        button.closest('.staff-card');
+
+
+    if(!card){
+        return;
+    }
+
+
+    const isOpen =
+        card.classList.contains('open');
+
+
+    /*
+       Если открываем одну карточку,
+       закрываем остальные.
+    */
+
+    document
+        .querySelectorAll('.staff-card')
+        .forEach(function(otherCard){
+
+            otherCard.classList.remove('open');
+
+        });
+
+
+    /*
+       Если выбранная была закрыта —
+       открываем её.
+    */
+
+    if(!isOpen){
+
+        card.classList.add('open');
+
+    }
+
+}
+
+
+
+/* =========================
+   MODAL
 ========================= */
 
 function openModal(){
@@ -1859,11 +1994,6 @@ function openModal(){
 
 }
 
-
-
-/* =========================
-   ЗАКРЫТЬ МОДАЛЬНОЕ ОКНО
-========================= */
 
 function closeModal(){
 
@@ -1887,7 +2017,7 @@ function closeModal(){
 
 
 /* =========================
-   ЗАКРЫТИЕ ПО ФОНУ
+   КЛИК ПО ФОНУ
 ========================= */
 
 document.addEventListener(
@@ -1915,7 +2045,7 @@ document.addEventListener(
 
 
 /* =========================
-   ЗАКРЫТИЕ ПО ESC
+   ESC
 ========================= */
 
 document.addEventListener(
@@ -1936,7 +2066,7 @@ document.addEventListener(
 
 
 /* =========================
-   ОТПРАВКА ЗАЯВКИ
+   ФОРМА
 ========================= */
 
 function submitApplication(event){
@@ -2010,7 +2140,7 @@ function submitApplication(event){
 
 
 /* =========================
-   ЗАПУСК САЙТА
+   START
 ========================= */
 
 document.addEventListener(
@@ -2021,7 +2151,6 @@ document.addEventListener(
 
     }
 );
-
 
 </script>
 
