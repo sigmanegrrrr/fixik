@@ -39,13 +39,13 @@ main{flex:1}
 .hero-buttons{display:flex;gap:14px;margin-top:35px;flex-wrap:wrap}
 .button-primary,.button-secondary{padding:16px 25px;border-radius:6px;font-size:12px;font-weight:700;letter-spacing:1px;display:inline-flex;align-items:center;justify-content:center;transition:.3s}
 .button-primary{background:var(--purple)}
-.button-primary:hover{transform:translateY(-3px);box-shadow:0 10px 30px rgba(139,92,246,.3)}
+.button-primary:hover{transform:translateY(-3px);box-shadow: 0 10px 30px rgba(139,92,246,.3)}
 .button-secondary{border:1px solid rgba(255,255,255,.15);background:rgba(255,255,255,.03)}
 .button-secondary:hover{background:rgba(255,255,255,.08)}
 .stats{display:grid;grid-template-columns:repeat(3,auto);justify-content:start;column-gap:50px;max-width:650px;margin-top:65px;border-top:1px solid var(--border);padding-top:25px}
 .stat h2{font-family:'Orbitron',sans-serif;font-size:28px}
 .stat p{color:var(--gray);font-size:10px;letter-spacing:2px;margin-top:8px}
-section.content-section{padding:135px 10% 90px;min-height:calc(100vh - 90px)}
+.content-section{padding:135px 10% 90px;min-height:calc(100vh - 90px)}
 .section-heading{margin-bottom:55px}
 .section-tag{font-size:10px;letter-spacing:4px;color:var(--purple-light);margin-bottom:15px}
 .section-heading h2{font-family:'Orbitron',sans-serif;font-size:clamp(30px,4vw,48px)}
@@ -86,7 +86,7 @@ section.content-section{padding:135px 10% 90px;min-height:calc(100vh - 90px)}
 footer{padding:35px 10%;border-top:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;gap:20px}
 footer p{color:var(--gray);font-size:11px}
 .footer-logo{font-family:'Orbitron',sans-serif;font-size:13px;letter-spacing:2px}
-@media(max-width:900px){.navbar{height:auto;flex-wrap:wrap;padding:12px 5%;gap:12px}.nav-links{width:100%;overflow-x:auto;padding-bottom:4px;gap:15px}.tab-btn{white-space:nowrap}.hero{padding-top:150px;padding-left:7%;padding-right:7%}section.content-section{padding:145px 7% 80px}.about-grid,.leaders-grid{grid-template-columns:1fr}.ranks{grid-template-columns:1fr 1fr}.stats{column-gap:25px}}
+@media(max-width:900px){.navbar{height:auto;flex-wrap:wrap;padding:12px 5%;gap:12px}.nav-links{width:100%;overflow-x:auto;padding-bottom:4px;gap:15px}.tab-btn{white-space:nowrap}.hero{padding-top:150px;padding-left:7%;padding-right:7%}.content-section{padding:145px 7% 80px}.about-grid,.leaders-grid{grid-template-columns:1fr}.ranks{grid-template-columns:1fr 1fr}.stats{column-gap:25px}}
 @media(max-width:550px){.ranks{grid-template-columns:1fr}.stats{grid-template-columns:1fr;row-gap:20px}footer{flex-direction:column;text-align:center}}
 </style>
 </head>
@@ -108,7 +108,7 @@ footer p{color:var(--gray);font-size:11px}
 </nav>
 
 <main>
-    <div id="tab-home" class="tab-page active">
+    <section id="tab-home" class="tab-page active">
         <header class="hero">
             <div class="hero-content">
                 <div class="label"><span class="label-dot"></span>MAJESTIC RP • MEMPHIS</div>
