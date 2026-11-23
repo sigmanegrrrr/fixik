@@ -3,116 +3,2027 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>FiXiK CLXN — Majestic RP</title>
-<meta name="description" content="FiXiK CLXN — клан на Majestic RP (сервер Memphis). Команда, характер и общая история.">
+
+<meta name="description" content="FiXiK CLXN — клан на Majestic RP, сервер Memphis.">
 <meta name="theme-color" content="#08090d">
+
 <link rel="icon" href="logo.png" type="image/png">
-<link href="https://googleapis.com" rel="stylesheet">
+
+<!-- Шрифты -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;500;600;700&family=DM+Sans:wght@400;500;600;700&family=Orbitron:wght@500;600;700;800&display=swap" rel="stylesheet">
+
 <style>
-:root{--bg:#08090d;--panel:#11131b;--purple:#8b5cf6;--purple-light:#b49aff;--white:#f5f5f7;--gray:#9293a0;--border:rgba(255,255,255,.08)}
-*{margin:0;padding:0;box-sizing:border-box}
-html{scroll-behavior:smooth}
-body{background:var(--bg);color:var(--white);font-family:'Inter',sans-serif;overflow-x:hidden;min-height:100vh;display:flex;flex-direction:column}
-a{text-decoration:none;color:inherit}
-button{font-family:inherit;border:none;cursor:pointer;color:inherit}
-.navbar{position:fixed;top:0;width:100%;height:78px;display:flex;align-items:center;justify-content:space-between;padding:0 8%;z-index:1000;background:rgba(8,9,13,.85);backdrop-filter:blur(20px);border-bottom:1px solid var(--border)}
-.logo{display:flex;align-items:center;gap:12px;cursor:pointer}
-.logo-icon{width:43px;height:43px;border-radius:50%;object-fit:contain;background:#11131b;box-shadow:0 0 25px rgba(139,92,246,.25)}
-.logo-text{font-family:'Orbitron',sans-serif;font-weight:700;letter-spacing:2px}
-.nav-links{display:flex;gap:28px;align-items:center}
-.tab-btn{background:transparent;color:#a7a7b3;font-size:13px;transition:.3s;padding:6px 0;position:relative}
-.tab-btn:hover,.tab-btn.active{color:#fff}
-.tab-btn.active::after{content:"";position:absolute;bottom:0;left:0;width:100%;height:2px;background:var(--purple)}
-.nav-button{padding:12px 20px;background:var(--purple);border-radius:7px;font-size:12px;font-weight:700;color:var(--white);transition:.3s}
-.nav-button:hover{background:#a078ff;box-shadow:0 0 25px rgba(139,92,246,.3)}
-main{flex:1}
-.tab-page{display:none}
-.tab-page.active{display:block}
-.hero{min-height:100vh;position:relative;display:flex;align-items:center;padding:120px 10% 90px;background:linear-gradient(90deg,rgba(8,9,13,.98) 0%,rgba(8,9,13,.75) 50%,rgba(8,9,13,.35) 100%),linear-gradient(0deg,#08090d 0%,transparent 35%),url('logo.png');background-size:cover;background-position:center}
-.hero::after{content:"";position:absolute;inset:0;background:radial-gradient(circle at 70% 50%,rgba(124,58,237,.16),transparent 45%);pointer-events:none}
-.hero-content{position:relative;z-index:2;max-width:750px}
-.label{display:inline-flex;align-items:center;gap:10px;border:1px solid rgba(167,139,250,.3);padding:9px 14px;color:var(--purple-light);font-size:10px;letter-spacing:3px;border-radius:4px;margin-bottom:25px}
-.label-dot{width:7px;height:7px;background:#a78bfa;border-radius:50%;box-shadow:0 0 10px #a78bfa}
-.hero h1{font-family:'Orbitron',sans-serif;font-size:clamp(48px,8vw,100px);line-height:1.08;font-weight:800;letter-spacing:-3px}
-.hero h1 span{color:var(--purple-light);text-shadow:0 0 45px rgba(139,92,246,.3)}
-.hero-description{color:#a7a7b3;font-size:15px;line-height:1.8;max-width:510px;margin-top:24px}
-.hero-buttons{display:flex;gap:14px;margin-top:35px;flex-wrap:wrap}
-.button-primary,.button-secondary{padding:16px 25px;border-radius:6px;font-size:12px;font-weight:700;letter-spacing:1px;display:inline-flex;align-items:center;justify-content:center;transition:.3s}
-.button-primary{background:var(--purple)}
-.button-primary:hover{transform:translateY(-3px);box-shadow: 0 10px 30px rgba(139,92,246,.3)}
-.button-secondary{border:1px solid rgba(255,255,255,.15);background:rgba(255,255,255,.03)}
-.button-secondary:hover{background:rgba(255,255,255,.08)}
-.stats{display:grid;grid-template-columns:repeat(3,auto);justify-content:start;column-gap:50px;max-width:650px;margin-top:65px;border-top:1px solid var(--border);padding-top:25px}
-.stat h2{font-family:'Orbitron',sans-serif;font-size:28px}
-.stat p{color:var(--gray);font-size:10px;letter-spacing:2px;margin-top:8px}
-.content-section{padding:135px 10% 90px;min-height:calc(100vh - 90px)}
-.section-heading{margin-bottom:55px}
-.section-tag{font-size:10px;letter-spacing:4px;color:var(--purple-light);margin-bottom:15px}
-.section-heading h2{font-family:'Orbitron',sans-serif;font-size:clamp(30px,4vw,48px)}
-.section-heading p{color:var(--gray);margin-top:15px;line-height:1.8;max-width:600px}
-.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:25px}
-.about-card{padding:35px;background:var(--panel);border:1px solid var(--border);border-radius:12px;transition:.3s}
-.about-card:hover{border-color:rgba(167,139,250,.35);transform:translateY(-5px)}
-.about-card .icon{font-size:25px;margin-bottom:20px}
-.about-card h3{font-family:'Orbitron',sans-serif;font-size:17px;margin-bottom:13px}
-.about-card p{color:var(--gray);line-height:1.8;font-size:13px}
-.timeline{display:flex;flex-direction:column;gap:20px;border-left:2px solid rgba(139,92,246,.35);padding-left:30px;margin-left:10px}
-.timeline-item{background:var(--panel);border:1px solid var(--border);border-radius:12px;padding:28px 32px;position:relative;transition:.3s}
-.timeline-item:hover{border-color:var(--purple)}
-.timeline-item::before{content:"";position:absolute;left:-37px;top:32px;width:12px;height:12px;border-radius:50%;background:var(--purple);box-shadow:0 0 12px var(--purple)}
-.timeline-badge{display:inline-block;font-family:'Orbitron',sans-serif;font-size:11px;color:var(--purple-light);background:rgba(139,92,246,.12);padding:4px 10px;border-radius:4px;margin-bottom:12px}
-.timeline-item h3{font-family:'Orbitron',sans-serif;font-size:20px;margin-bottom:10px}
-.timeline-item p{color:var(--gray);font-size:14px;line-height:1.7}
-.ranks{display:grid;grid-template-columns:repeat(4,1fr);gap:15px}
-.rank{padding:28px 22px;border:1px solid var(--border);background:var(--panel);border-radius:10px;transition:.3s}
-.rank:hover{border-color:var(--purple);transform:translateY(-5px)}
-.rank-number{color:var(--purple-light);font-family:'Orbitron',sans-serif;font-size:11px;margin-bottom:20px}
-.rank h3{font-family:'Orbitron',sans-serif;font-size:15px;margin-bottom:10px}
-.rank p{font-size:12px;color:var(--gray);line-height:1.7}
-.leaders-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
-.leader-card{background:var(--panel);border:1px solid var(--border);border-radius:12px;padding:28px}
-.leader-role{color:var(--purple-light);font-family:'Orbitron',sans-serif;font-size:10px;letter-spacing:2px;margin-bottom:10px}
-.leader-card h3{font-family:'Orbitron',sans-serif;font-size:18px;margin-bottom:6px}
-.leader-card span{color:var(--gray);font-size:12px}
-.modal-overlay{position:fixed;inset:0;background:rgba(8,9,13,.85);backdrop-filter:blur(10px);display:none;align-items:center;justify-content:center;z-index:2000;padding:20px}
-.modal-overlay.active{display:flex}
-.modal-box{background:var(--panel);border:1px solid rgba(139,92,246,.3);border-radius:14px;padding:35px;max-width:440px;width:100%;position:relative}
-.modal-close{position:absolute;top:18px;right:20px;background:transparent;color:var(--gray);font-size:20px}
-.modal-box h3{font-family:'Orbitron',sans-serif;font-size:20px;margin-bottom:8px}
-.modal-box p{color:var(--gray);font-size:13px;margin-bottom:20px}
-.form-group{margin-bottom:15px}
-.form-group input,.form-group textarea{width:100%;padding:12px 14px;background:var(--bg);border:1px solid var(--border);border-radius:6px;color:var(--white);font-size:13px;outline:none}
-.form-group input:focus,.form-group textarea:focus{border-color:var(--purple)}
-footer{padding:35px 10%;border-top:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;gap:20px}
-footer p{color:var(--gray);font-size:11px}
-.footer-logo{font-family:'Orbitron',sans-serif;font-size:13px;letter-spacing:2px}
-@media(max-width:900px){.navbar{height:auto;flex-wrap:wrap;padding:12px 5%;gap:12px}.nav-links{width:100%;overflow-x:auto;padding-bottom:4px;gap:15px}.tab-btn{white-space:nowrap}.hero{padding-top:150px;padding-left:7%;padding-right:7%}.content-section{padding:145px 7% 80px}.about-grid,.leaders-grid{grid-template-columns:1fr}.ranks{grid-template-columns:1fr 1fr}.stats{column-gap:25px}}
-@media(max-width:550px){.ranks{grid-template-columns:1fr}.stats{grid-template-columns:1fr;row-gap:20px}footer{flex-direction:column;text-align:center}}
+
+:root{
+    --bg:#08090d;
+    --panel:#11131b;
+    --purple:#8b5cf6;
+    --purple-light:#b49aff;
+    --white:#f5f5f7;
+    --gray:#9293a0;
+    --border:rgba(255,255,255,.08);
+}
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    background:var(--bg);
+    color:var(--white);
+    font-family:'DM Sans',sans-serif;
+    overflow-x:hidden;
+    min-height:100vh;
+}
+
+a{
+    text-decoration:none;
+    color:inherit;
+}
+
+button{
+    font-family:inherit;
+    border:none;
+    cursor:pointer;
+    color:inherit;
+}
+
+
+/* =========================
+   NAVBAR
+========================= */
+
+.navbar{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    min-height:78px;
+
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+
+    padding:0 8%;
+
+    z-index:1000;
+
+    background:rgba(8,9,13,.82);
+    backdrop-filter:blur(20px);
+
+    border-bottom:1px solid var(--border);
+}
+
+.logo{
+    display:flex;
+    align-items:center;
+    gap:12px;
+    cursor:pointer;
+}
+
+.logo-icon{
+    width:43px;
+    height:43px;
+
+    border-radius:50%;
+
+    object-fit:contain;
+
+    background:#11131b;
+
+    box-shadow:
+        0 0 25px rgba(139,92,246,.25);
+}
+
+.logo-text{
+    font-family:'Orbitron',sans-serif;
+    font-weight:700;
+    letter-spacing:2px;
+}
+
+.nav-links{
+    display:flex;
+    gap:28px;
+    align-items:center;
+}
+
+.tab-btn{
+    position:relative;
+
+    background:transparent;
+
+    color:#a7a7b3;
+
+    font-size:13px;
+
+    padding:8px 0;
+
+    transition:.3s;
+}
+
+.tab-btn:hover,
+.tab-btn.active{
+    color:#fff;
+}
+
+.tab-btn.active::after{
+    content:"";
+
+    position:absolute;
+
+    bottom:0;
+    left:0;
+
+    width:100%;
+    height:2px;
+
+    background:var(--purple);
+}
+
+.nav-button{
+    padding:12px 20px;
+
+    background:var(--purple);
+
+    border-radius:7px;
+
+    font-size:12px;
+    font-weight:700;
+
+    transition:.3s;
+}
+
+.nav-button:hover{
+    background:#a078ff;
+
+    box-shadow:
+        0 0 25px rgba(139,92,246,.3);
+}
+
+
+/* =========================
+   TABS
+========================= */
+
+main{
+    min-height:100vh;
+}
+
+.tab-page{
+    display:none;
+}
+
+.tab-page.active{
+    display:block;
+}
+
+
+/* =========================
+   HERO
+========================= */
+
+.hero{
+    min-height:100vh;
+
+    position:relative;
+
+    display:flex;
+    align-items:center;
+
+    padding:
+        120px
+        10%
+        90px;
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(8,9,13,.98) 0%,
+            rgba(8,9,13,.75) 50%,
+            rgba(8,9,13,.35) 100%
+        ),
+        linear-gradient(
+            0deg,
+            #08090d 0%,
+            transparent 35%
+        ),
+        url('logo.png');
+
+    background-size:cover;
+    background-position:center;
+}
+
+.hero::after{
+    content:"";
+
+    position:absolute;
+
+    inset:0;
+
+    background:
+        radial-gradient(
+            circle at 70% 50%,
+            rgba(124,58,237,.16),
+            transparent 45%
+        );
+
+    pointer-events:none;
+}
+
+.hero-content{
+    position:relative;
+    z-index:2;
+
+    max-width:750px;
+}
+
+.label{
+    display:inline-flex;
+
+    align-items:center;
+
+    gap:10px;
+
+    border:
+        1px solid
+        rgba(167,139,250,.3);
+
+    padding:9px 14px;
+
+    color:var(--purple-light);
+
+    font-size:10px;
+
+    letter-spacing:3px;
+
+    border-radius:4px;
+
+    margin-bottom:25px;
+}
+
+.label-dot{
+    width:7px;
+    height:7px;
+
+    background:#a78bfa;
+
+    border-radius:50%;
+
+    box-shadow:
+        0 0 10px #a78bfa;
+}
+
+.hero h1{
+    font-family:'Orbitron',sans-serif;
+
+    font-size:
+        clamp(
+            48px,
+            8vw,
+            100px
+        );
+
+    line-height:1.08;
+
+    font-weight:800;
+
+    letter-spacing:-3px;
+}
+
+.hero h1 span{
+    color:var(--purple-light);
+
+    text-shadow:
+        0 0 45px rgba(139,92,246,.3);
+}
+
+.hero-description{
+    color:#a7a7b3;
+
+    font-size:15px;
+
+    line-height:1.8;
+
+    max-width:510px;
+
+    margin-top:24px;
+}
+
+.hero-buttons{
+    display:flex;
+
+    gap:14px;
+
+    margin-top:35px;
+
+    flex-wrap:wrap;
+}
+
+.button-primary,
+.button-secondary{
+    padding:16px 25px;
+
+    border-radius:6px;
+
+    font-size:12px;
+
+    font-weight:700;
+
+    letter-spacing:1px;
+
+    display:inline-flex;
+
+    align-items:center;
+    justify-content:center;
+
+    transition:.3s;
+}
+
+.button-primary{
+    background:var(--purple);
+}
+
+.button-primary:hover{
+    transform:translateY(-3px);
+
+    box-shadow:
+        0 10px 30px
+        rgba(139,92,246,.3);
+}
+
+.button-secondary{
+    border:
+        1px solid
+        rgba(255,255,255,.15);
+
+    background:
+        rgba(255,255,255,.03);
+}
+
+.button-secondary:hover{
+    background:
+        rgba(255,255,255,.08);
+}
+
+
+/* =========================
+   STATS
+========================= */
+
+.stats{
+    display:grid;
+
+    grid-template-columns:
+        repeat(3,auto);
+
+    justify-content:start;
+
+    column-gap:50px;
+
+    max-width:650px;
+
+    margin-top:65px;
+
+    border-top:
+        1px solid
+        var(--border);
+
+    padding-top:25px;
+}
+
+.stat h2{
+    font-family:'Orbitron',sans-serif;
+
+    font-size:28px;
+}
+
+.stat p{
+    color:var(--gray);
+
+    font-size:10px;
+
+    letter-spacing:2px;
+
+    margin-top:8px;
+}
+
+
+/* =========================
+   SECTIONS
+========================= */
+
+section.content-section{
+    padding:
+        135px
+        10%
+        90px;
+
+    min-height:100vh;
+}
+
+.section-heading{
+    margin-bottom:55px;
+}
+
+.section-tag{
+    font-size:10px;
+
+    letter-spacing:4px;
+
+    color:var(--purple-light);
+
+    margin-bottom:15px;
+}
+
+.section-heading h2{
+    font-family:'Orbitron',sans-serif;
+
+    font-size:
+        clamp(
+            30px,
+            4vw,
+            48px
+        );
+}
+
+.section-heading p{
+    color:var(--gray);
+
+    margin-top:15px;
+
+    line-height:1.8;
+
+    max-width:600px;
+}
+
+
+/* =========================
+   ABOUT
+========================= */
+
+.about-grid{
+    display:grid;
+
+    grid-template-columns:
+        1fr 1fr;
+
+    gap:25px;
+}
+
+.about-card{
+    padding:35px;
+
+    background:var(--panel);
+
+    border:
+        1px solid
+        var(--border);
+
+    border-radius:12px;
+
+    transition:.3s;
+}
+
+.about-card:hover{
+    border-color:
+        rgba(167,139,250,.35);
+
+    transform:translateY(-5px);
+}
+
+.about-card .icon{
+    font-size:25px;
+
+    margin-bottom:20px;
+}
+
+.about-card h3{
+    font-family:'Orbitron',sans-serif;
+
+    font-size:17px;
+
+    margin-bottom:13px;
+}
+
+.about-card p{
+    color:var(--gray);
+
+    line-height:1.8;
+
+    font-size:13px;
+}
+
+
+/* =========================
+   TIMELINE
+========================= */
+
+.timeline{
+    display:flex;
+
+    flex-direction:column;
+
+    gap:20px;
+
+    border-left:
+        2px solid
+        rgba(139,92,246,.35);
+
+    padding-left:30px;
+
+    margin-left:10px;
+}
+
+.timeline-item{
+    background:var(--panel);
+
+    border:
+        1px solid
+        var(--border);
+
+    border-radius:12px;
+
+    padding:28px 32px;
+
+    position:relative;
+
+    transition:.3s;
+}
+
+.timeline-item:hover{
+    border-color:var(--purple);
+}
+
+.timeline-item::before{
+    content:"";
+
+    position:absolute;
+
+    left:-37px;
+    top:32px;
+
+    width:12px;
+    height:12px;
+
+    border-radius:50%;
+
+    background:var(--purple);
+
+    box-shadow:
+        0 0 12px
+        var(--purple);
+}
+
+.timeline-badge{
+    display:inline-block;
+
+    font-family:'Orbitron',sans-serif;
+
+    font-size:11px;
+
+    color:var(--purple-light);
+
+    background:
+        rgba(139,92,246,.12);
+
+    padding:4px 10px;
+
+    border-radius:4px;
+
+    margin-bottom:12px;
+}
+
+.timeline-item h3{
+    font-family:'Orbitron',sans-serif;
+
+    font-size:20px;
+
+    margin-bottom:10px;
+}
+
+.timeline-item p{
+    color:var(--gray);
+
+    font-size:14px;
+
+    line-height:1.7;
+}
+
+
+/* =========================
+   RANKS
+========================= */
+
+.ranks{
+    display:grid;
+
+    grid-template-columns:
+        repeat(4,1fr);
+
+    gap:15px;
+}
+
+.rank{
+    padding:28px 22px;
+
+    border:
+        1px solid
+        var(--border);
+
+    background:var(--panel);
+
+    border-radius:10px;
+
+    transition:.3s;
+}
+
+.rank:hover{
+    border-color:var(--purple);
+
+    transform:translateY(-5px);
+}
+
+.rank-number{
+    color:var(--purple-light);
+
+    font-family:'Orbitron',sans-serif;
+
+    font-size:11px;
+
+    margin-bottom:20px;
+}
+
+.rank h3{
+    font-family:'Orbitron',sans-serif;
+
+    font-size:15px;
+
+    margin-bottom:10px;
+}
+
+.rank p{
+    font-size:12px;
+
+    color:var(--gray);
+
+    line-height:1.7;
+}
+
+
+/* =========================
+   STAFF
+========================= */
+
+.leaders-grid{
+    display:grid;
+
+    grid-template-columns:
+        repeat(3,1fr);
+
+    gap:20px;
+}
+
+.leader-card{
+    background:var(--panel);
+
+    border:
+        1px solid
+        var(--border);
+
+    border-radius:12px;
+
+    padding:28px;
+
+    transition:.3s;
+}
+
+.leader-card:hover{
+    transform:translateY(-5px);
+
+    border-color:var(--purple);
+}
+
+.leader-role{
+    color:var(--purple-light);
+
+    font-family:'Orbitron',sans-serif;
+
+    font-size:10px;
+
+    letter-spacing:2px;
+
+    margin-bottom:10px;
+}
+
+.leader-card h3{
+    font-family:'Orbitron',sans-serif;
+
+    font-size:18px;
+
+    margin-bottom:6px;
+}
+
+.leader-card span{
+    color:var(--gray);
+
+    font-size:12px;
+}
+
+
+/* =========================
+   MODAL
+========================= */
+
+.modal-overlay{
+    position:fixed;
+
+    inset:0;
+
+    background:
+        rgba(8,9,13,.85);
+
+    backdrop-filter:blur(10px);
+
+    display:none;
+
+    align-items:center;
+    justify-content:center;
+
+    z-index:2000;
+
+    padding:20px;
+}
+
+.modal-overlay.active{
+    display:flex;
+}
+
+.modal-box{
+    background:var(--panel);
+
+    border:
+        1px solid
+        rgba(139,92,246,.3);
+
+    border-radius:14px;
+
+    padding:35px;
+
+    max-width:440px;
+
+    width:100%;
+
+    position:relative;
+
+    box-shadow:
+        0 20px 80px
+        rgba(0,0,0,.5);
+}
+
+.modal-close{
+    position:absolute;
+
+    top:18px;
+    right:20px;
+
+    background:transparent;
+
+    color:var(--gray);
+
+    font-size:25px;
+
+    transition:.2s;
+}
+
+.modal-close:hover{
+    color:white;
+}
+
+.modal-box h3{
+    font-family:'Orbitron',sans-serif;
+
+    font-size:20px;
+
+    margin-bottom:8px;
+}
+
+.modal-box p{
+    color:var(--gray);
+
+    font-size:13px;
+
+    margin-bottom:20px;
+
+    line-height:1.6;
+}
+
+.form-group{
+    margin-bottom:15px;
+}
+
+.form-group input,
+.form-group textarea{
+    width:100%;
+
+    padding:12px 14px;
+
+    background:var(--bg);
+
+    border:
+        1px solid
+        var(--border);
+
+    border-radius:6px;
+
+    color:var(--white);
+
+    font-size:13px;
+
+    outline:none;
+
+    resize:vertical;
+
+    font-family:'DM Sans',sans-serif;
+}
+
+.form-group input:focus,
+.form-group textarea:focus{
+    border-color:var(--purple);
+
+    box-shadow:
+        0 0 0 2px
+        rgba(139,92,246,.1);
+}
+
+
+/* =========================
+   FOOTER
+========================= */
+
+footer{
+    padding:35px 10%;
+
+    border-top:
+        1px solid
+        var(--border);
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:space-between;
+
+    gap:20px;
+}
+
+footer p{
+    color:var(--gray);
+
+    font-size:11px;
+}
+
+.footer-logo{
+    font-family:'Orbitron',sans-serif;
+
+    font-size:13px;
+
+    letter-spacing:2px;
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media(max-width:900px){
+
+    .navbar{
+        min-height:auto;
+
+        flex-wrap:wrap;
+
+        padding:12px 5%;
+
+        gap:12px;
+    }
+
+    .nav-links{
+        width:100%;
+
+        overflow-x:auto;
+
+        padding-bottom:4px;
+
+        gap:15px;
+
+        scrollbar-width:none;
+    }
+
+    .nav-links::-webkit-scrollbar{
+        display:none;
+    }
+
+    .tab-btn{
+        white-space:nowrap;
+    }
+
+    .hero{
+        padding-top:150px;
+
+        padding-left:7%;
+        padding-right:7%;
+    }
+
+    section.content-section{
+        padding:
+            145px
+            7%
+            80px;
+    }
+
+    .about-grid,
+    .leaders-grid{
+        grid-template-columns:1fr;
+    }
+
+    .ranks{
+        grid-template-columns:
+            1fr 1fr;
+    }
+
+    .stats{
+        column-gap:25px;
+    }
+}
+
+
+@media(max-width:550px){
+
+    .logo-text{
+        font-size:13px;
+    }
+
+    .logo-icon{
+        width:38px;
+        height:38px;
+    }
+
+    .hero h1{
+        letter-spacing:-2px;
+    }
+
+    .hero-buttons{
+        flex-direction:column;
+        align-items:stretch;
+    }
+
+    .button-primary,
+    .button-secondary{
+        width:100%;
+    }
+
+    .ranks{
+        grid-template-columns:1fr;
+    }
+
+    .stats{
+        grid-template-columns:1fr;
+
+        row-gap:20px;
+    }
+
+    footer{
+        flex-direction:column;
+
+        text-align:center;
+    }
+
+    .timeline{
+        padding-left:20px;
+    }
+
+    .timeline-item::before{
+        left:-27px;
+    }
+
+    .modal-box{
+        padding:28px 22px;
+    }
+}
+
 </style>
 </head>
+
+
 <body>
 
+
+<!-- =========================
+     NAVBAR
+========================= -->
+
 <nav class="navbar">
+
     <div class="logo" onclick="openTab('home')">
-        <img src="logo.png" alt="FiXiK WEB" class="logo-icon">
-        <div class="logo-text">FiXiK WEB</div>
+
+        <img
+            src="logo.png"
+            alt="FiXiK CLXN"
+            class="logo-icon"
+        >
+
+        <div class="logo-text">
+            FiXiK WEB
+        </div>
+
     </div>
+
+
     <div class="nav-links">
-        <button type="button" class="tab-btn active" data-tab="home" onclick="openTab('home')">Главная</button>
-        <button type="button" class="tab-btn" data-tab="about" onclick="openTab('about')">О клане</button>
-        <button type="button" class="tab-btn" data-tab="history" onclick="openTab('history')">Семьи и путь</button>
-        <button type="button" class="tab-btn" data-tab="ranks" onclick="openTab('ranks')">Иерархия</button>
-        <button type="button" class="tab-btn" data-tab="staff" onclick="openTab('staff')">Состав</button>
-        <button type="button" class="nav-button" onclick="openModal()">ВСТУПИТЬ</button>
+
+        <button
+            class="tab-btn active"
+            data-tab="home"
+            onclick="openTab('home')"
+        >
+            Главная
+        </button>
+
+        <button
+            class="tab-btn"
+            data-tab="about"
+            onclick="openTab('about')"
+        >
+            О клане
+        </button>
+
+        <button
+            class="tab-btn"
+            data-tab="history"
+            onclick="openTab('history')"
+        >
+            Наш путь
+        </button>
+
+        <button
+            class="tab-btn"
+            data-tab="ranks"
+            onclick="openTab('ranks')"
+        >
+            Иерархия
+        </button>
+
+        <button
+            class="tab-btn"
+            data-tab="staff"
+            onclick="openTab('staff')"
+        >
+            Состав
+        </button>
+
+        <button
+            class="nav-button"
+            onclick="openModal()"
+        >
+            ВСТУПИТЬ
+        </button>
+
     </div>
+
 </nav>
 
+
+
 <main>
-    <section id="tab-home" class="tab-page active">
-        <header class="hero">
-            <div class="hero-content">
-                <div class="label"><span class="label-dot"></span>MAJESTIC RP • MEMPHIS</div>
-                <h1>FiXiK <span>CLXN</span></h1>
-                <p class="hero-description">FiXiK CLXN — клан на Majestic RP (сервер Memphis). Команда, характер и общая история.</p>
-                <div class="hero-buttons">
-                    <button type="button" class="button-primary" onclick="openModal()">ПОДАТЬ ЗАЯВКУ</button>
+
+
+<!-- =========================
+     HOME
+========================= -->
+
+<div
+    id="tab-home"
+    class="tab-page active"
+>
+
+    <header class="hero">
+
+        <div class="hero-content">
+
+            <div class="label">
+
+                <span class="label-dot"></span>
+
+                MAJESTIC RP • MEMPHIS
+
+            </div>
+
+
+            <h1>
+                FiXiK
+                <span>CLXN</span>
+            </h1>
+
+
+            <p class="hero-description">
+
+                FiXiK CLXN — клан на Majestic RP
+                на сервере Memphis.
+
+                Команда, характер и общая история.
+
+            </p>
+
+
+            <div class="hero-buttons">
+
+                <button
+                    class="button-primary"
+                    onclick="openModal()"
+                >
+                    ПОДАТЬ ЗАЯВКУ
+                </button>
+
+
+                <button
+                    class="button-secondary"
+                    onclick="openTab('history')"
+                >
+                    НАШ ПУТЬ
+                </button>
+
+            </div>
+
+
+            <div class="stats">
+
+                <div class="stat">
+
+                    <h2>01</h2>
+
+                    <p>
+                        CLAN
+                    </p>
+
+                </div>
+
+
+                <div class="stat">
+
+                    <h2>MEMPHIS</h2>
+
+                    <p>
+                        SERVER
+                    </p>
+
+                </div>
+
+
+                <div class="stat">
+
+                    <h2>∞</h2>
+
+                    <p>
+                        POTENTIAL
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </header>
+
+</div>
+
+
+
+<!-- =========================
+     ABOUT
+========================= -->
+
+<div
+    id="tab-about"
+    class="tab-page"
+>
+
+    <section class="content-section">
+
+        <div class="section-heading">
+
+            <div class="section-tag">
+                ABOUT CLAN
+            </div>
+
+            <h2>
+                О клане
+            </h2>
+
+            <p>
+                FiXiK CLXN — это клан Majestic RP
+                на сервере Memphis.
+
+                Мы собираем людей, которые хотят
+                играть вместе, развиваться и создавать
+                свою историю.
+            </p>
+
+        </div>
+
+
+        <div class="about-grid">
+
+
+            <div class="about-card">
+
+                <div class="icon">
+                    ⚡
+                </div>
+
+                <h3>
+                    Свой стиль
+                </h3>
+
+                <p>
+                    У FiXiK CLXN свой характер,
+                    атмосфера и собственная
+                    идентичность.
+                </p>
+
+            </div>
+
+
+            <div class="about-card">
+
+                <div class="icon">
+                    👥
+                </div>
+
+                <h3>
+                    Команда
+                </h3>
+
+                <p>
+                    Мы играем как единая команда
+                    и поддерживаем участников
+                    клана.
+                </p>
+
+            </div>
+
+
+            <div class="about-card">
+
+                <div class="icon">
+                    🏆
+                </div>
+
+                <h3>
+                    Развитие
+                </h3>
+
+                <p>
+                    Постепенно развиваем клан,
+                    состав и наше присутствие
+                    на сервере.
+                </p>
+
+            </div>
+
+
+            <div class="about-card">
+
+                <div class="icon">
+                    🔥
+                </div>
+
+                <h3>
+                    Атмосфера
+                </h3>
+
+                <p>
+                    Главное — нормальная атмосфера,
+                    актив и удовольствие от игры.
+                </p>
+
+            </div>
+
+
+        </div>
+
+    </section>
+
+</div>
+
+
+
+<!-- =========================
+     HISTORY
+========================= -->
+
+<div
+    id="tab-history"
+    class="tab-page"
+>
+
+    <section class="content-section">
+
+        <div class="section-heading">
+
+            <div class="section-tag">
+                OUR HISTORY
+            </div>
+
+            <h2>
+                Наш путь
+            </h2>
+
+            <p>
+                История развития FiXiK CLXN
+                и людей, которые создают
+                клан вместе.
+            </p>
+
+        </div>
+
+
+        <div class="timeline">
+
+
+            <div class="timeline-item">
+
+                <span class="timeline-badge">
+                    01
+                </span>
+
+                <h3>
+                    Начало
+                </h3>
+
+                <p>
+                    Создание FiXiK CLXN
+                    и формирование первых
+                    участников клана.
+                </p>
+
+            </div>
+
+
+            <div class="timeline-item">
+
+                <span class="timeline-badge">
+                    02
+                </span>
+
+                <h3>
+                    Формирование состава
+                </h3>
+
+                <p>
+                    Появляются первые постоянные
+                    участники и формируется
+                    структура клана.
+                </p>
+
+            </div>
+
+
+            <div class="timeline-item">
+
+                <span class="timeline-badge">
+                    03
+                </span>
+
+                <h3>
+                    Развитие
+                </h3>
+
+                <p>
+                    Клан развивается,
+                    появляются новые направления,
+                    активности и совместные цели.
+                </p>
+
+            </div>
+
+
+            <div class="timeline-item">
+
+                <span class="timeline-badge">
+                    04
+                </span>
+
+                <h3>
+                    Новый уровень
+                </h3>
+
+                <p>
+                    FiXiK CLXN продолжает
+                    развиваться и расширять
+                    свой состав на Memphis.
+                </p>
+
+            </div>
+
+
+        </div>
+
+    </section>
+
+</div>
+
+
+
+<!-- =========================
+     RANKS
+========================= -->
+
+<div
+    id="tab-ranks"
+    class="tab-page"
+>
+
+    <section class="content-section">
+
+        <div class="section-heading">
+
+            <div class="section-tag">
+                CLAN STRUCTURE
+            </div>
+
+            <h2>
+                Иерархия
+            </h2>
+
+            <p>
+                Структура FiXiK CLXN.
+            </p>
+
+        </div>
+
+
+        <div class="ranks">
+
+
+            <div class="rank">
+
+                <div class="rank-number">
+                    01
+                </div>
+
+                <h3>
+                    Владелец
+                </h3>
+
+                <p>
+                    Руководит кланом
+                    и принимает основные
+                    решения.
+                </p>
+
+            </div>
+
+
+            <div class="rank">
+
+                <div class="rank-number">
+                    02
+                </div>
+
+                <h3>
+                    Заместитель
+                </h3>
+
+                <p>
+                    Помогает руководству
+                    и следит за работой
+                    состава.
+                </p>
+
+            </div>
+
+
+            <div class="rank">
+
+                <div class="rank-number">
+                    03
+                </div>
+
+                <h3>
+                    Основной состав
+                </h3>
+
+                <p>
+                    Активные участники
+                    FiXiK CLXN.
+                </p>
+
+            </div>
+
+
+            <div class="rank">
+
+                <div class="rank-number">
+                    04
+                </div>
+
+                <h3>
+                    Новичок
+                </h3>
+
+                <p>
+                    Новый участник,
+                    который проходит
+                    адаптацию в клане.
+                </p>
+
+            </div>
+
+
+        </div>
+
+    </section>
+
+</div>
+
+
+
+<!-- =========================
+     STAFF
+========================= -->
+
+<div
+    id="tab-staff"
+    class="tab-page"
+>
+
+    <section class="content-section">
+
+        <div class="section-heading">
+
+            <div class="section-tag">
+                CLAN STAFF
+            </div>
+
+            <h2>
+                Состав
+            </h2>
+
+            <p>
+                Руководство и основные
+                участники FiXiK CLXN.
+            </p>
+
+        </div>
+
+
+        <div class="leaders-grid">
+
+
+            <div class="leader-card">
+
+                <div class="leader-role">
+                    OWNER
+                </div>
+
+                <h3>
+                    FiXiK
+                </h3>
+
+                <span>
+                    Владелец клана
+                </span>
+
+            </div>
+
+
+            <div class="leader-card">
+
+                <div class="leader-role">
+                    DEPUTY
+                </div>
+
+                <h3>
+                    В разработке
+                </h3>
+
+                <span>
+                    Заместитель
+                </span>
+
+            </div>
+
+
+            <div class="leader-card">
+
+                <div class="leader-role">
+                    MAIN
+                </div>
+
+                <h3>
+                    FiXiK CLXN
+                </h3>
+
+                <span>
+                    Основной состав
+                </span>
+
+            </div>
+
+
+        </div>
+
+    </section>
+
+</div>
+
+
+</main>
+
+
+
+<!-- =========================
+     FOOTER
+========================= -->
+
+<footer>
+
+    <div class="footer-logo">
+        FiXiK WEB
+    </div>
+
+    <p>
+        © 2026 FiXiK CLXN • Majestic RP • Memphis
+    </p>
+
+</footer>
+
+
+
+<!-- =========================
+     JOIN MODAL
+========================= -->
+
+<div
+    class="modal-overlay"
+    id="joinModal"
+>
+
+    <div class="modal-box">
+
+        <button
+            class="modal-close"
+            onclick="closeModal()"
+            aria-label="Закрыть"
+        >
+            ×
+        </button>
+
+
+        <h3>
+            Вступить в FiXiK
+        </h3>
+
+
+        <p>
+            Заполни заявку, если хочешь
+            присоединиться к нашему клану.
+        </p>
+
+
+        <form
+            id="applicationForm"
+            onsubmit="submitApplication(event)"
+        >
+
+            <div class="form-group">
+
+                <input
+                    type="text"
+                    id="nickname"
+                    placeholder="Твой ник"
+                    required
+                >
+
+            </div>
+
+
+            <div class="form-group">
+
+                <input
+                    type="number"
+                    id="age"
+                    placeholder="Возраст"
+                    min="14"
+                    max="99"
+                    required
+                >
+
+            </div>
+
+
+            <div class="form-group">
+
+                <textarea
+                    id="about"
+                    placeholder="Расскажи немного о себе"
+                    rows="5"
+                    required
+                ></textarea>
+
+            </div>
+
+
+            <button
+                type="submit"
+                class="button-primary"
+                style="width:100%;"
+            >
+                ОТПРАВИТЬ ЗАЯВКУ
+            </button>
+
+        </form>
+
+    </div>
+
+</div>
+
+
+
+<!-- =========================
+     JAVASCRIPT
+========================= -->
+
+<script>
+
+
+/* =========================
+   ПЕРЕКЛЮЧЕНИЕ ВКЛАДОК
+========================= */
+
+function openTab(tabName){
+
+    // Скрываем все страницы
+    document
+        .querySelectorAll('.tab-page')
+        .forEach(function(page){
+
+            page.classList.remove('active');
+
+        });
+
+
+    // Ищем нужную страницу
+    const selectedPage =
+        document.getElementById(
+            'tab-' + tabName
+        );
+
+
+    // Показываем её
+    if(selectedPage){
+
+        selectedPage.classList.add('active');
+
+    }
+
+
+    // Убираем active со всех кнопок
+    document
+        .querySelectorAll('.tab-btn')
+        .forEach(function(button){
+
+            button.classList.remove('active');
+
+        });
+
+
+    // Ставим active нужной кнопке
+    document
+        .querySelectorAll('.tab-btn')
+        .forEach(function(button){
+
+            if(
+                button.dataset.tab === tabName
+            ){
+
+                button.classList.add('active');
+
+            }
+
+        });
+
+
+    // Прокручиваем страницу вверх
+    window.scrollTo({
+        top:0,
+        behavior:'smooth'
+    });
+
+}
+
+
+
+/* =========================
+   ОТКРЫТЬ МОДАЛЬНОЕ ОКНО
+========================= */
+
+function openModal(){
+
+    const modal =
+        document.getElementById(
+            'joinModal'
+        );
+
+
+    if(modal){
+
+        modal.classList.add('active');
+
+        document.body.style.overflow =
+            'hidden';
+
+    }
+
+}
+
+
+
+/* =========================
+   ЗАКРЫТЬ МОДАЛЬНОЕ ОКНО
+========================= */
+
+function closeModal(){
+
+    const modal =
+        document.getElementById(
+            'joinModal'
+        );
+
+
+    if(modal){
+
+        modal.classList.remove('active');
+
+        document.body.style.overflow =
+            '';
+
+    }
+
+}
+
+
+
+/* =========================
+   ЗАКРЫТИЕ ПО ФОНУ
+========================= */
+
+document.addEventListener(
+    'click',
+    function(event){
+
+        const modal =
+            document.getElementById(
+                'joinModal'
+            );
+
+
+        if(
+            modal &&
+            event.target === modal
+        ){
+
+            closeModal();
+
+        }
+
+    }
+);
+
+
+
+/* =========================
+   ЗАКРЫТИЕ ПО ESC
+========================= */
+
+document.addEventListener(
+    'keydown',
+    function(event){
+
+        if(
+            event.key === 'Escape'
+        ){
+
+            closeModal();
+
+        }
+
+    }
+);
+
+
+
+/* =========================
+   ОТПРАВКА ЗАЯВКИ
+========================= */
+
+function submitApplication(event){
+
+    event.preventDefault();
+
+
+    const nickname =
+        document
+            .getElementById('nickname')
+            .value
+            .trim();
+
+
+    const age =
+        document
+            .getElementById('age')
+            .value
+            .trim();
+
+
+    const about =
+        document
+            .getElementById('about')
+            .value
+            .trim();
+
+
+    if(
+        !nickname ||
+        !age ||
+        !about
+    ){
+
+        alert(
+            'Заполни все поля!'
+        );
+
+        return;
+
+    }
+
+
+    alert(
+        'Заявка принята!\\n\\n' +
+
+        'Ник: ' +
+        nickname +
+
+        '\\nВозраст: ' +
+        age +
+
+        '\\n\\n' +
+
+        'Теперь ожидай связи ' +
+        'от состава FiXiK CLXN.'
+    );
+
+
+    document
+        .getElementById(
+            'applicationForm'
+        )
+        .reset();
+
+
+    closeModal();
+
+}
+
+
+
+/* =========================
+   ЗАПУСК САЙТА
+========================= */
+
+document.addEventListener(
+    'DOMContentLoaded',
+    function(){
+
+        openTab('home');
+
+    }
+);
+
+
+</script>
+
+</body>
+</html>
