@@ -15,7 +15,7 @@ html{scroll-behavior:smooth}
 body{background:var(--bg);color:var(--white);font-family:'Inter',sans-serif;overflow-x:hidden;min-height:100vh;display:flex;flex-direction:column}
 a{text-decoration:none;color:inherit}
 button{font-family:inherit;border:none;cursor:pointer;color:inherit}
-.navbar{position:fixed;top:0;width:100%;height:78px;display:flex;align-items:center;justify-content:space-between;padding:0 8%;z-index:1000;background:rgba(8,9,13,.78);backdrop-filter:blur(20px);border-bottom:1px solid var(--border)}
+.navbar{position:fixed;top:0;width:100%;height:78px;display:flex;align-items:center;justify-content:space-between;padding:0 8%;z-index:1000;background:rgba(8,9,13,.85);backdrop-filter:blur(20px);border-bottom:1px solid var(--border)}
 .logo{display:flex;align-items:center;gap:12px;cursor:pointer}
 .logo-icon{width:43px;height:43px;border-radius:50%;object-fit:contain;background:#11131b;box-shadow:0 0 25px rgba(139,92,246,.25)}
 .logo-text{font-family:'Orbitron',sans-serif;font-weight:700;letter-spacing:2px}
@@ -98,12 +98,12 @@ footer p{color:var(--gray);font-size:11px}
         <div class="logo-text">FiXiK WEB</div>
     </div>
     <div class="nav-links">
-        <button class="tab-btn active" data-tab="home" onclick="openTab('home')">Главная</button>
-        <button class="tab-btn" data-tab="about" onclick="openTab('about')">О клане</button>
-        <button class="tab-btn" data-tab="history" onclick="openTab('history')">Семьи и путь</button>
-        <button class="tab-btn" data-tab="ranks" onclick="openTab('ranks')">Иерархия</button>
-        <button class="tab-btn" data-tab="staff" onclick="openTab('staff')">Состав</button>
-        <button class="nav-button" onclick="openModal()">ВСТУПИТЬ</button>
+        <button type="button" class="tab-btn active" data-tab="home" onclick="openTab('home')">Главная</button>
+        <button type="button" class="tab-btn" data-tab="about" onclick="openTab('about')">О клане</button>
+        <button type="button" class="tab-btn" data-tab="history" onclick="openTab('history')">Семьи и путь</button>
+        <button type="button" class="tab-btn" data-tab="ranks" onclick="openTab('ranks')">Иерархия</button>
+        <button type="button" class="tab-btn" data-tab="staff" onclick="openTab('staff')">Состав</button>
+        <button type="button" class="nav-button" onclick="openModal()">ВСТУПИТЬ</button>
     </div>
 </nav>
 
@@ -115,6 +115,4 @@ footer p{color:var(--gray);font-size:11px}
                 <h1>FiXiK <span>CLXN</span></h1>
                 <p class="hero-description">FiXiK CLXN — клан на Majestic RP (сервер Memphis). Команда, характер и общая история.</p>
                 <div class="hero-buttons">
-                    <button class="button-primary" onclick="openModal()">ПОДАТЬ ЗАЯВКУ</button>
-                    <button class="button-secondary" onclick="openTab('history')">НАША ИСТОРИЯ СЕМЕЙ</button>
-                </div>
+                    <button type="button" class="button-primary" onclick="openModal()">ПОДАТЬ ЗАЯВКУ</button>
