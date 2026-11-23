@@ -4,516 +4,126 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>FiXiK CLXN — Majestic RP</title>
-<meta name="description" content="FiXiK CLXN — семья на Majestic RP (сервер Memphis). Команда, характер и общая история.">
-<meta name="theme-color" content="#08090d">
-
-<link rel="preconnect" href="https://googleapis.com">
-<link rel="preconnect" href="https://gstatic.com" crossorigin>
-<link href="https://googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-
+<link href="https://googleapis.com" rel="stylesheet">
 <style>
-:root {
-    --bg: #08090d;
-    --panel: #11131b;
-    --purple: #8b5cf6;
-    --purple-light: #b49aff;
-    --white: #f5f5f7;
-    --gray: #9293a0;
-    --border: rgba(255,255,255,0.08);
-}
-
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-html {
-    scroll-behavior: smooth;
-}
-
-body {
-    background: var(--bg);
-    color: var(--white);
-    font-family: 'Inter', sans-serif;
-    overflow-x: hidden;
-}
-
-a {
-    text-decoration: none;
-    color: inherit;
-}
-
-button {
-    font-family: inherit;
-    border: none;
-    cursor: pointer;
-    color: inherit;
-}
-
-/* NAVBAR */
-.navbar {
-    position: fixed;
-    top: 0;
-    width: 100%;
-    height: 78px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 0 8%;
-    z-index: 1000;
-    background: rgba(8,9,13,0.78);
-    backdrop-filter: blur(20px);
-    border-bottom: 1px solid var(--border);
-}
-
-.logo {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-}
-
-.logo-icon {
-    width: 43px;
-    height: 43px;
-    border-radius: 50%;
-    background: linear-gradient(135deg, var(--purple), #4c1d95);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-family: 'Orbitron', sans-serif;
-    font-weight: 800;
-    font-size: 16px;
-    box-shadow: 0 0 25px rgba(139,92,246,.25);
-}
-
-.logo-text {
-    font-family: 'Orbitron', sans-serif;
-    font-weight: 700;
-    letter-spacing: 2px;
-}
-
-.logo-text span {
-    display: block;
-    font-size: 9px;
-    color: var(--gray);
-    letter-spacing: 4px;
-    margin-top: 3px;
-}
-
-.nav-links {
-    display: flex;
-    gap: 32px;
-    align-items: center;
-}
-
-.nav-links a {
-    color: #a7a7b3;
-    font-size: 13px;
-    transition: .3s;
-}
-
-.nav-links a:hover {
-    color: white;
-}
-
-.nav-button {
-    padding: 12px 20px;
-    background: var(--purple);
-    border-radius: 7px;
-    font-size: 12px;
-    font-weight: 700;
-    transition: .3s;
-}
-
-.nav-links a.nav-button {
-    color: var(--white);
-}
-
-.nav-button:hover {
-    background: #a078ff;
-    box-shadow: 0 0 25px rgba(139,92,246,.3);
-}
-
-/* HERO */
-.hero {
-    min-height: 100vh;
-    position: relative;
-    display: flex;
-    align-items: center;
-    padding: 120px 10% 90px;
-    background:
-      linear-gradient(90deg, rgba(8,9,13,.98) 0%, rgba(8,9,13,.75) 50%, rgba(8,9,13,.35) 100%),
-      linear-gradient(0deg, #08090d 0%, transparent 35%),
-      url('https://unsplash.com');
-    background-size: cover;
-    background-position: center;
-}
-
-.hero::after {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background: radial-gradient(circle at 70% 50%, rgba(124,58,237,.16), transparent 45%);
-    pointer-events: none;
-}
-
-.hero-content {
-    position: relative;
-    z-index: 2;
-    max-width: 750px;
-}
-
-.label {
-    display: inline-flex;
-    align-items: center;
-    gap: 10px;
-    border: 1px solid rgba(167,139,250,.3);
-    padding: 9px 14px;
-    color: var(--purple-light);
-    font-size: 10px;
-    letter-spacing: 3px;
-    border-radius: 4px;
-    margin-bottom: 25px;
-    background: rgba(139,92,246,0.06);
-}
-
-.label-dot {
-    width: 7px;
-    height: 7px;
-    background: #a78bfa;
-    border-radius: 50%;
-    box-shadow: 0 0 10px #a78bfa;
-}
-
-.hero h1 {
-    font-family: 'Orbitron', sans-serif;
-    font-size: clamp(48px, 8vw, 100px);
-    line-height: 1.08;
-    font-weight: 800;
-    letter-spacing: -3px;
-}
-
-.hero h1 span {
-    color: var(--purple-light);
-    text-shadow: 0 0 45px rgba(139,92,246,.3);
-}
-
-.hero-description {
-    color: #a7a7b3;
-    font-size: 15px;
-    line-height: 1.8;
-    max-width: 510px;
-    margin-top: 24px;
-}
-
-.hero-buttons {
-    display: flex;
-    gap: 14px;
-    margin-top: 35px;
-    flex-wrap: wrap;
-}
-
-.button-primary, .button-secondary {
-    padding: 16px 25px;
-    border-radius: 6px;
-    font-size: 12px;
-    font-weight: 700;
-    letter-spacing: 1px;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    gap: 8px;
-    transition: .3s;
-}
-
-.button-primary {
-    background: var(--purple);
-}
-
-.button-primary:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 10px 30px rgba(139,92,246,.3);
-}
-
-.button-secondary {
-    border: 1px solid rgba(255,255,255,.15);
-    background: rgba(255,255,255,.03);
-}
-
-.button-secondary:hover {
-    background: rgba(255,255,255,.08);
-    border-color: rgba(167,139,250,.4);
-}
-
-/* STATS */
-.stats {
-    display: grid;
-    grid-template-columns: repeat(3, auto);
-    justify-content: start;
-    column-gap: 50px;
-    max-width: 600px;
-    margin-top: 65px;
-    border-top: 1px solid var(--border);
-    padding-top: 25px;
-}
-
-.stat h2 {
-    font-family: 'Orbitron', sans-serif;
-    font-size: 28px;
-}
-
-.stat p {
-    color: var(--gray);
-    font-size: 10px;
-    letter-spacing: 2px;
-    margin-top: 8px;
-}
-
-/* SECTIONS */
-section.content-section {
-    padding: 110px 10%;
-}
-
-.section-heading {
-    margin-bottom: 55px;
-}
-
-.section-tag {
-    font-size: 10px;
-    letter-spacing: 4px;
-    color: var(--purple-light);
-    margin-bottom: 15px;
-    text-transform: uppercase;
-}
-
-.section-heading h2 {
-    font-family: 'Orbitron', sans-serif;
-    font-size: clamp(30px, 4vw, 48px);
-}
-
-.section-heading p {
-    color: var(--gray);
-    margin-top: 15px;
-    line-height: 1.8;
-    max-width: 600px;
-}
-
-/* ABOUT */
-.about-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 25px;
-}
-
-.about-card {
-    padding: 35px;
-    background: var(--panel);
-    border: 1px solid var(--border);
-    border-radius: 12px;
-    transition: .3s;
-}
-
-.about-card:hover {
-    border-color: rgba(167,139,250,.35);
-    transform: translateY(-5px);
-}
-
-.about-card .icon {
-    font-size: 25px;
-    margin-bottom: 20px;
-}
-
-.about-card h3 {
-    font-family: 'Orbitron', sans-serif;
-    font-size: 17px;
-    margin-bottom: 13px;
-}
-
-.about-card p {
-    color: var(--gray);
-    line-height: 1.8;
-    font-size: 13px;
-}
-
-/* RANKS */
-.ranks-section {
-    background: #0d0e14;
-}
-
-.ranks {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 15px;
-}
-
-.rank {
-    padding: 28px 22px;
-    border: 1px solid var(--border);
-    background: var(--panel);
-    border-radius: 10px;
-    transition: .3s;
-}
-
-.rank:hover {
-    border-color: var(--purple);
-    transform: translateY(-5px);
-}
-
-.rank-number {
-    color: var(--purple-light);
-    font-family: 'Orbitron', sans-serif;
-    font-size: 11px;
-    margin-bottom: 20px;
-}
-
-.rank h3 {
-    font-family: 'Orbitron', sans-serif;
-    font-size: 15px;
-    margin-bottom: 10px;
-}
-
-.rank p {
-    font-size: 12px;
-    color: var(--gray);
-    line-height: 1.7;
-}
-
-/* JOIN */
-.join {
-    text-align: center;
-    padding: 130px 20px !important;
-    background:
-      radial-gradient(circle at center, rgba(139,92,246,.13), transparent 55%),
-      #08090d;
-}
-
-.join h2 {
-    font-family: 'Orbitron', sans-serif;
-    font-size: clamp(32px, 5vw, 55px);
-}
-
-.join p {
-    color: var(--gray);
-    max-width: 500px;
-    margin: 20px auto 35px;
-    line-height: 1.8;
-}
-
-/* MODAL */
-.modal-overlay {
-    position: fixed;
-    inset: 0;
-    background: rgba(8,9,13,0.85);
-    backdrop-filter: blur(10px);
-    display: none;
-    align-items: center;
-    justify-content: center;
-    z-index: 2000;
-    padding: 20px;
-}
-
-.modal-overlay.active {
-    display: flex;
-}
-
-.modal-box {
-    background: var(--panel);
-    border: 1px solid rgba(139,92,246,0.3);
-    border-radius: 14px;
-    padding: 35px;
-    max-width: 440px;
-    width: 100%;
-    position: relative;
-    box-shadow: 0 20px 50px rgba(0,0,0,0.6);
-}
-
-.modal-close {
-    position: absolute;
-    top: 18px;
-    right: 20px;
-    background: transparent;
-    color: var(--gray);
-    font-size: 20px;
-}
-
-.modal-box h3 {
-    font-family: 'Orbitron', sans-serif;
-    font-size: 20px;
-    margin-bottom: 8px;
-}
-
-.modal-box p {
-    color: var(--gray);
-    font-size: 13px;
-    margin-bottom: 20px;
-}
-
-.form-group {
-    margin-bottom: 15px;
-}
-
-.form-group input, .form-group textarea {
-    width: 100%;
-    padding: 12px 14px;
-    background: var(--bg);
-    border: 1px solid var(--border);
-    border-radius: 6px;
-    color: var(--white);
-    font-family: inherit;
-    font-size: 13px;
-    outline: none;
-    transition: .3s;
-}
-
-.form-group input:focus, .form-group textarea:focus {
-    border-color: var(--purple);
-}
-
-/* FOOTER */
-footer {
-    padding: 35px 10%;
-    border-top: 1px solid var(--border);
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 20px;
-}
-
-footer p {
-    color: var(--gray);
-    font-size: 11px;
-}
-
-.footer-logo {
-    font-family: 'Orbitron', sans-serif;
-    font-size: 13px;
-    letter-spacing: 2px;
-}
-
-/* MOBILE */
-@media (max-width: 900px) {
-    .navbar { padding: 0 5%; }
-    .nav-links { gap: 15px; }
-    .nav-links a:not(.nav-button) { display: none; }
-    .hero { padding-left: 7%; padding-right: 7%; }
-    section.content-section { padding: 80px 7%; }
-    .about-grid { grid-template-columns: 1fr; }
-    .ranks { grid-template-columns: 1fr 1fr; }
-    .stats { column-gap: 30px; }
-}
-
-@media (max-width: 550px) {
-    .ranks { grid-template-columns: 1fr; }
-    footer { flex-direction: column; text-align: center; }
-}
+:root{--bg:#08090d;--panel:#11131b;--purple:#8b5cf6;--purple-light:#b49aff;--white:#f5f5f7;--gray:#9293a0;--border:rgba(255,255,255,0.08)}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--white);font-family:'Inter',sans-serif;overflow-x:hidden}
+a{text-decoration:none;color:inherit}
+button{font-family:inherit;border:none;cursor:pointer;color:inherit}
+.navbar{position:fixed;top:0;width:100%;height:78px;display:flex;align-items:center;justify-content:space-between;padding:0 8%;z-index:1000;background:rgba(8,9,13,.85);backdrop-filter:blur(20px);border-bottom:1px solid var(--border)}
+.logo{display:flex;align-items:center;gap:12px}
+.logo-icon{width:43px;height:43px;border-radius:50%;background:linear-gradient(135deg,var(--purple),#4c1d95);display:flex;align-items:center;justify-content:center;font-family:'Orbitron',sans-serif;font-weight:800;font-size:16px;box-shadow:0 0 25px rgba(139,92,246,.3)}
+.logo-text{font-family:'Orbitron',sans-serif;font-weight:700;letter-spacing:2px}
+.logo-text span{display:block;font-size:9px;color:var(--gray);letter-spacing:4px;margin-top:3px}
+.nav-links{display:flex;gap:32px;align-items:center}
+.nav-links a{color:#a7a7b3;font-size:13px;transition:.3s}
+.nav-links a:hover{color:#fff}
+.nav-button{padding:12px 20px;background:var(--purple);border-radius:7px;font-size:12px;font-weight:700;color:#fff!important;transition:.3s}
+.nav-button:hover{background:#a078ff;box-shadow:0 0 25px rgba(139,92,246,.3)}
+.hero{min-height:100vh;position:relative;display:flex;align-items:center;padding:120px 10% 90px;background:linear-gradient(90deg,rgba(8,9,13,.96) 0%,rgba(8,9,13,.75) 55%,rgba(8,9,13,.35) 100%),linear-gradient(0deg,#08090d 0%,transparent 35%),url('https://unsplash.com');background-size:cover;background-position:center}
+.hero-content{position:relative;z-index:2;max-width:750px}
+.label{display:inline-flex;align-items:center;gap:10px;border:1px solid rgba(167,139,250,.3);padding:9px 14px;color:var(--purple-light);font-size:10px;letter-spacing:3px;border-radius:4px;margin-bottom:25px;background:rgba(139,92,246,.08)}
+.label-dot{width:7px;height:7px;background:#a78bfa;border-radius:50%;box-shadow:0 0 10px #a78bfa}
+.hero h1{font-family:'Orbitron',sans-serif;font-size:clamp(48px,8vw,96px);line-height:1.08;font-weight:800;letter-spacing:-2px}
+.hero h1 span{color:var(--purple-light);text-shadow:0 0 45px rgba(139,92,246,.35)}
+.hero-description{color:#a7a7b3;font-size:15px;line-height:1.8;max-width:510px;margin-top:24px}
+.hero-buttons{display:flex;gap:14px;margin-top:35px;flex-wrap:wrap}
+.button-primary,.button-secondary{padding:16px 25px;border-radius:6px;font-size:12px;font-weight:700;letter-spacing:1px;display:inline-flex;align-items:center;justify-content:center;transition:.3s}
+.button-primary{background:var(--purple);color:#fff}
+.button-primary:hover{transform:translateY(-3px);box-shadow:0 10px 30px rgba(139,92,246,.35)}
+.button-secondary{border:1px solid rgba(255,255,255,.15);background:rgba(255,255,255,.04)}
+.button-secondary:hover{background:rgba(255,255,255,.1);border-color:rgba(167,139,250,.4)}
+.stats{display:grid;grid-template-columns:repeat(3,auto);justify-content:start;column-gap:50px;max-width:600px;margin-top:65px;border-top:1px solid var(--border);padding-top:25px}
+.stat h2{font-family:'Orbitron',sans-serif;font-size:28px}
+.stat p{color:var(--gray);font-size:10px;letter-spacing:2px;margin-top:8px}
+section.content-section{padding:110px 10%}
+.section-heading{margin-bottom:55px}
+.section-tag{font-size:10px;letter-spacing:4px;color:var(--purple-light);margin-bottom:15px}
+.section-heading h2{font-family:'Orbitron',sans-serif;font-size:clamp(30px,4vw,48px)}
+.section-heading p{color:var(--gray);margin-top:15px;line-height:1.8;max-width:600px}
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:25px}
+.about-card{padding:35px;background:var(--panel);border:1px solid var(--border);border-radius:12px;transition:.3s}
+.about-card:hover{border-color:rgba(167,139,250,.35);transform:translateY(-5px)}
+.about-card .icon{font-size:25px;margin-bottom:20px}
+.about-card h3{font-family:'Orbitron',sans-serif;font-size:17px;margin-bottom:13px}
+.about-card p{color:var(--gray);line-height:1.8;font-size:13px}
+.ranks-section{background:#0d0e14}
+.ranks{display:grid;grid-template-columns:repeat(4,1fr);gap:15px}
+.rank{padding:28px 22px;border:1px solid var(--border);background:var(--panel);border-radius:10px;transition:.3s}
+.rank:hover{border-color:var(--purple);transform:translateY(-5px)}
+.rank-number{color:var(--purple-light);font-family:'Orbitron',sans-serif;font-size:11px;margin-bottom:20px}
+.rank h3{font-family:'Orbitron',sans-serif;font-size:15px;margin-bottom:10px}
+.rank p{font-size:12px;color:var(--gray);line-height:1.7}
+.join{text-align:center;padding:130px 20px!important;background:radial-gradient(circle at center,rgba(139,92,246,.14),transparent 55%),#08090d}
+.join h2{font-family:'Orbitron',sans-serif;font-size:clamp(32px,5vw,55px)}
+.join p{color:var(--gray);max-width:500px;margin:20px auto 35px;line-height:1.8}
+.modal-overlay{position:fixed;inset:0;background:rgba(8,9,13,.85);backdrop-filter:blur(10px);display:none;align-items:center;justify-content:center;z-index:2000;padding:20px}
+.modal-overlay.active{display:flex}
+.modal-box{background:var(--panel);border:1px solid rgba(139,92,246,.3);border-radius:14px;padding:35px;max-width:440px;width:100%;position:relative}
+.modal-close{position:absolute;top:18px;right:20px;background:transparent;color:var(--gray);font-size:20px}
+.modal-box h3{font-family:'Orbitron',sans-serif;font-size:20px;margin-bottom:8px}
+.modal-box p{color:var(--gray);font-size:13px;margin-bottom:20px}
+.form-group{margin-bottom:15px}
+.form-group input,.form-group textarea{width:100%;padding:12px 14px;background:var(--bg);border:1px solid var(--border);border-radius:6px;color:var(--white);font-family:inherit;font-size:13px;outline:none}
+.form-group input:focus,.form-group textarea:focus{border-color:var(--purple)}
+footer{padding:35px 10%;border-top:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;gap:20px}
+footer p{color:var(--gray);font-size:11px}
+.footer-logo{font-family:'Orbitron',sans-serif;font-size:13px;letter-spacing:2px}
+@media(max-width:900px){.navbar{padding:0 5%}.nav-links a:not(.nav-button){display:none}.hero,section.content-section{padding-left:7%;padding-right:7%}.about-grid{grid-template-columns:1fr}.ranks{grid-template-columns:1fr 1fr}.stats{column-gap:30px}}
+@media(max-width:550px){.ranks{grid-template-columns:1fr}footer{flex-direction:column;text-align:center}}
 </style>
 </head>
 <body>
-
 <nav class="navbar">
     <a href="#" class="logo">
         <div class="logo-icon">FX</div>
-        <div class="logo-text">
-            FiXiK CLXN
-            <span>MEMPHIS SERVER</span>
+        <div class="logo-text">FiXiK CLXN<span>MEMPHIS SERVER</span></div>
+    </a>
+    <div class="nav-links">
+        <a href="#about">О семье</a>
+        <a href="#ranks">Иерархия</a>
+        <a href="#join">Вступить</a>
+        <a href="#join" class="nav-button" onclick="openModal(event)">ПОДАТЬ ЗАЯВКУ</a>
+    </div>
+</nav>
+
+<header class="hero">
+    <div class="hero-content">
+        <div class="label"><span class="label-dot"></span>MAJESTIC RP • MEMPHIS</div>
+        <h1>FiXiK <span>CLXN</span></h1>
+        <p class="hero-description">Закрытое комьюнити с характером и общей историей. Мы строим репутацию на сервере Memphis, ценим верность слову и держимся вместе в любой ситуации.</p>
+        <div class="hero-buttons">
+            <button class="button-primary" onclick="openModal(event)">ВСТУПИТЬ В СЕМЬЮ</button>
+            <button class="button-secondary" id="promoBtn" onclick="copyPromo()">ПРОМОКОД: FIXIK</button>
+        </div>
+        <div class="stats">
+            <div class="stat"><h2>50+</h2><p>УЧАСТНИКОВ</p></div>
+            <div class="stat"><h2>24/7</h2><p>АКТИВ В ШТАТЕ</p></div>
+            <div class="stat"><h2>TOP</h2><p>КОМАНДНАЯ ИГРА</p></div>
+        </div>
+    </div>
+</header>
+
+<section id="about" class="content-section">
+    <div class="section-heading">
+        <div class="section-tag">ФИЛОСОФИЯ</div>
+        <h2>Кто мы такие</h2>
+        <p>FiXiK CLXN — это не просто тег над головой, а слаженный механизм, где каждый отвечает за общий результат.</p>
+    </div>
+    <div class="about-grid">
+        <div class="about-card"><div class="icon">⚡</div><h3>Братство и поддержка</h3><p>Новичок ты или опытный игрок — мы всегда прикроем спину, поможем освоиться с механиками сервера и поддержим в конфликтах.</p></div>
+        <div class="about-card"><div class="icon">🎯</div><h3>Контент и движ</h3><p>Регулярные семейные контракты, ограбления, тулево, капты и совместные ивенты без токсичности и лишнего пафоса.</p></div>
+        <div class="about-card"><div class="icon">🏛️</div><h3>Автопарк и дом</h3><p>Собственный особняк, заряженный автопарк для любых задач и стабильный доход для активных участников состава.</p></div>
+        <div class="about-card"><div class="icon">🛡️</div><h3>Дисциплина</h3><p>Уважение внутри коллектива и адекватность. Мы ценим людей с головой на плечах и чувством юмора.</p></div>
+    </div>
+</section>
+
+<section id="ranks" class="content-section ranks-section">
+    <div class="section-heading">
+        <div class="section-tag">СТРУКТУРА</div>
+        <h2>Иерархия семьи</h2>
+        <p>Прозрачный карьерный рост: твоя активность и вклад напрямую влияют на статус внутри клана.</p>
+    </div>
+    <div class="ranks">
